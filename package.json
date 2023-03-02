@@ -1,0 +1,62 @@
+{
+  "name": "recruit.hanowl.com",
+  "packageManager": "yarn@3.4.1",
+  "type": "module",
+  "version": "1.0.0",
+  "repository": "https://github.com/hanowwl/recruit.hanowl.com",
+  "maintainers": [
+    {
+      "name": "HanSu Lee",
+      "email": "i.hansu.lee@gmail.com",
+      "url": "https://github.com/hanseo0507"
+    },
+    {
+      "name": "Mingi Choe",
+      "email": "cmg8431@gmail.com",
+      "url": "https://github.com/cmg8431"
+    },
+    {
+      "name": "GeunWon Choi",
+      "email": "kidjustinchoi@gmail.com",
+      "url": "https://github.com/choi138"
+    }
+  ],
+  "scripts": {
+    "postinstall": "husky install",
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx,json}\" --fix --cache",
+    "format": "prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0"
+  },
+  "lint-staged": {
+    "**/*.+(ts|tsx|js|jsx|json)": [
+      "eslint --fix --cache",
+      "prettier --write"
+    ]
+  }
+}

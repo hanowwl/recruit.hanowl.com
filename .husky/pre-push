@@ -1,0 +1,12 @@
+#!/bin/bash
+
+protected_branch='main'
+current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+
+if [[ $protected_branch = $current_branch ]]
+then
+    echo "$protected_branch 브랜치로 바로 푸시할 수 없어요 다른 브랜치를 생성 후 PR을 날려주세요!"
+    exit 1 # push will not execute
+else
+    exit 0 # push will execute
+fi
