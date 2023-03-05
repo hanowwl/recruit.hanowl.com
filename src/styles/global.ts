@@ -8,7 +8,7 @@ export const globalStyle = css`
   ${reset}
   ${pretendardFont}
 
-    * {
+  * {
     box-sizing: border-box;
   }
 
