@@ -3,3 +3,5 @@
 .pnp.loager.mjs
 node_modules
 dist
+
+src/types/supabase.ts
