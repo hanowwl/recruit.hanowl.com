@@ -26,6 +26,4 @@ export const FIELD: FieldType[] = [
   },
 ];
 
-// export const TEAM_LIST = {
-
-// }
+export const TEAMS = {};

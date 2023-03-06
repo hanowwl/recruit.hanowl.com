@@ -1,10 +1,19 @@
 import styled from '@emotion/styled';
 
-export const Wrap = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 30px 0;
   width: 100%;
+  /* &:last-child {
+    margin-top: 10px;
+  } */
+  /* > section {
+    margin-top: 30px;
+  } */
+  > section {
+    margin-top: 30px;
+  }
 `;
 
 export const Title = styled.h1`

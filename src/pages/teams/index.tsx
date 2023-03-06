@@ -3,13 +3,14 @@ import { useSearchParams } from 'react-router-dom';
 
 import * as S from './styled';
 
-import { develop, event, general, marketing, safety } from '@/constant/field-introduce';
+import { develop, event, general, marketing, safety } from '@/constant/fieldIntroduce';
 import { FieldIntroduce } from '@/components/FieldIntroduce';
-import { FIELD } from '@/constant/field';
+import { FIELD } from '@/constant/team';
+import { TEAM_LIST } from '@/constant';
 
 export const TeamPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const fieldName = searchParams.get('field');
+  const teamName = searchParams.get('field');
 
   return (
     <S.Container>
@@ -22,55 +23,17 @@ export const TeamPage: React.FC = () => {
         </S.TitleMessage>
       </S.TitleContainer>
       <S.FieldWrap>
-        {FIELD.map(({ id, title }) => (
-          <S.FieldTitle key={id} to={`?field=${id}`} isActive={fieldName === id}>
-            {title}
+        {TEAM_LIST.map(({ id, name }) => (
+          <S.FieldTitle key={id} to={`?field=${id}`} isActive={teamName === id}>
+            {name}
           </S.FieldTitle>
         ))}
       </S.FieldWrap>
-      {fieldName === 'develop' ? (
-        <FieldIntroduce
-          title="기능부 소개"
-          description={develop.description}
-          description2={develop.description2}
-          introduction={develop.introduce}
-        />
-      ) : fieldName === 'marketing' ? (
-        <FieldIntroduce
-          title="홍보부 소개"
-          description={marketing.description}
-          description2={marketing.description2}
-          introduction={marketing.introduce}
-        />
-      ) : fieldName === 'event' ? (
-        <FieldIntroduce
-          title="행사기획부 소개"
-          description={event.description}
-          description2={event.description2}
-          introduction={event.introduce}
-        />
-      ) : fieldName === 'safety' ? (
-        <FieldIntroduce
-          title="안전부 소개"
-          description={safety.description}
-          description2={safety.description2}
-          introduction={safety.introduce}
-        />
-      ) : fieldName === 'general' ? (
-        <FieldIntroduce
-          title="총모부 소개"
-          description={general.description}
-          description2={general.description2}
-          introduction={general.introduce}
-        />
-      ) : (
-        <FieldIntroduce
-          title="기능부 소개"
-          description={general.description}
-          description2={general.description2}
-          introduction={general.introduce}
-        />
-      )}
+      {TEAM_LIST.map(({ id, name, sections }) => {
+        if (teamName === id) {
+          return <FieldIntroduce sections={sections} />;
+        }
+      })}
       <br />
       <br />
       <div>
