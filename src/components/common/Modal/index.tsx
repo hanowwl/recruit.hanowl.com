@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react';
 
+import { modalsAtom } from '../../../atoms';
+
 import * as S from './styled';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useAtomValue } from 'jotai';
 
 export interface ModalProps {
   children: React.ReactNode;
+  onClickClose?: React.MouseEventHandler;
 
   header?: {
     props?: React.HTMLAttributes<HTMLDivElement>;
@@ -24,7 +28,7 @@ export interface ModalProps {
   };
 }
 
-const ModalElement: React.FC<ModalProps> = ({ children, header, body, footer }) => {
+const ModalElement: React.FC<ModalProps> = ({ children, header, body, footer, onClickClose }) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {
@@ -37,7 +41,7 @@ const ModalElement: React.FC<ModalProps> = ({ children, header, body, footer }) 
       <S.ModalHeaderContainer {...(header && header.props)}>
         {header?.text && <S.ModalHeader>{header.text}</S.ModalHeader>}
 
-        <S.ModalCloseButton>
+        <S.ModalCloseButton onClick={onClickClose}>
           <FontAwesomeIcon icon={faXmark} color="#FFFFFF" style={{ fontSize: '2rem' }} />
         </S.ModalCloseButton>
       </S.ModalHeaderContainer>
@@ -57,6 +61,18 @@ const ModalElement: React.FC<ModalProps> = ({ children, header, body, footer }) 
   );
 };
 
+const ModalContainer: React.FC = () => {
+  const modals = useAtomValue(modalsAtom);
+  if (modals.length <= 0) return null;
+
+  return (
+    <Modal.Overlay>
+      <Modal {...modals[0]} />
+    </Modal.Overlay>
+  );
+};
+
 export const Modal = Object.assign(ModalElement, {
   Overlay: S.ModalOverlay,
+  Container: ModalContainer,
 });
