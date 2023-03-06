@@ -21,8 +21,9 @@ export const Title = styled.h1`
 `;
 
 export const TitleMessage = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
+  line-height: 1.3;
   color: #a9a9a9;
   width: 490px;
 `;
