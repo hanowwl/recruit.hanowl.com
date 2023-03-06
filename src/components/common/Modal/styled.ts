@@ -31,8 +31,8 @@ export const ModalContainer = styled.div`
   width: 36rem;
   max-height: 44rem;
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(2rem);
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(1.2rem);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 1.2rem;
   animation: 200ms cubic-bezier(0.33, 1, 0.68, 1) ${modalOpenKeyframe};
