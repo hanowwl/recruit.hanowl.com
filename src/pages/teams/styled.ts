@@ -28,7 +28,7 @@ export const TitleMessage = styled.p`
   width: 490px;
 `;
 
-export const FieldWrap = styled.div`
+export const TeamWrap = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   width: 40%;
@@ -37,7 +37,7 @@ export const FieldWrap = styled.div`
   margin: 40px 0;
 `;
 
-export const FieldTitle = styled(Link)<{ isActive: boolean }>`
+export const TeamTitle = styled(Link)<{ isActive: boolean }>`
   font-size: 16px;
   font-weight: 500;
   color: #ffff;

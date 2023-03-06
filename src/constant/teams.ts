@@ -14,10 +14,6 @@ export interface TeamSection {
   list?: string[];
 }
 
-export function isTeamTextSectionProps(props: TeamSection): props is TeamTextSection {
-  return (props as TeamTextSection).text !== undefined;
-}
-
 export interface Team {
   id: string;
   name: string;

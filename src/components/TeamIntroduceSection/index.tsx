@@ -2,23 +2,13 @@ import React from 'react';
 
 import * as S from './styled';
 
-import {
-  isTeamTextSectionProps,
-  TeamSection,
-  TeamListSection,
-  TeamTextSection,
-} from '@/constant/teams';
+import { TeamSection } from '@/constant/teams';
 
-type IntroductionType = {
-  wantedPerson: string;
-  haveExperience: string;
-};
-
-interface FieldIntroduceProps {
+interface TeamIntroduceSectionProps {
   sections: TeamSection[];
 }
 
-export const FieldIntroduce: React.FC<FieldIntroduceProps> = ({ sections }) => {
+export const TeamIntroduceSection: React.FC<TeamIntroduceSectionProps> = ({ sections }) => {
   return (
     <S.Container>
       {sections.map((section) => {

@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 
 import * as S from './styled';
 
-import { FieldIntroduce } from '@/components/FieldIntroduce';
+import { TeamIntroduceSection } from '@/components/TeamIntroduceSection';
 import { TEAM_LIST } from '@/constant';
 
 export const TeamPage: React.FC = () => {
@@ -20,16 +20,16 @@ export const TeamPage: React.FC = () => {
           인싸가 되고 싶나요? 그럼 드루와 드루와
         </S.TitleMessage>
       </S.TitleContainer>
-      <S.FieldWrap>
+      <S.TeamWrap>
         {TEAM_LIST.map(({ id, name }) => (
-          <S.FieldTitle key={id} to={`?field=${id}`} isActive={teamName === id}>
+          <S.TeamTitle key={id} to={`?field=${id}`} isActive={teamName === id}>
             {name}
-          </S.FieldTitle>
+          </S.TeamTitle>
         ))}
-      </S.FieldWrap>
+      </S.TeamWrap>
       {TEAM_LIST.map(({ id, name, sections }) => {
         if (teamName === id) {
-          return <FieldIntroduce sections={sections} />;
+          return <TeamIntroduceSection sections={sections} />;
         }
       })}
       <div>
