@@ -3,9 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 
 import * as S from './styled';
 
-import { develop, event, general, marketing, safety } from '@/constant/fieldIntroduce';
 import { FieldIntroduce } from '@/components/FieldIntroduce';
-import { FIELD } from '@/constant/team';
 import { TEAM_LIST } from '@/constant';
 
 export const TeamPage: React.FC = () => {
@@ -34,8 +32,6 @@ export const TeamPage: React.FC = () => {
           return <FieldIntroduce sections={sections} />;
         }
       })}
-      <br />
-      <br />
       <div>
         <S.ApplyButton>지원하기</S.ApplyButton>
       </div>

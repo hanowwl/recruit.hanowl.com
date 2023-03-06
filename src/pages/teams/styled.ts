@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 50px 0;
+  margin: 30px 0;
 `;
 
 export const TitleContainer = styled.div`
@@ -45,6 +45,7 @@ export const FieldTitle = styled(Link)<{ isActive: boolean }>`
 `;
 
 export const ApplyButton = styled.button`
+  margin-top: 20px;
   padding: 8px 3rem;
   background-color: #fff;
   outline: none;

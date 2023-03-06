@@ -5,14 +5,9 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 30px 0;
   width: 100%;
-  /* &:last-child {
-    margin-top: 10px;
-  } */
-  /* > section {
-    margin-top: 30px;
-  } */
-  > section {
-    margin-top: 30px;
+  > section:nth-of-type(2) {
+    /* border: 1px solid red; */
+    margin: 30px 0;
   }
 `;
 
