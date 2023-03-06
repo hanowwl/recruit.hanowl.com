@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { MainPage } from './pages';
-import { TeamPage } from './pages/teams';
+import { MainPage, TeamPage } from './pages';
 
 export const App: React.FC = () => {
   return (

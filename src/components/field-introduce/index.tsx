@@ -3,14 +3,16 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 import * as S from './styled';
 
+type IntroductionType = {
+  wantedPerson: string;
+  haveExperience: string;
+};
+
 interface FieldIntroduceProps {
   title: string;
   description: string;
   description2: string;
-  introduction: {
-    wantedPerson: string;
-    haveExperience: string;
-  }[];
+  introduction: IntroductionType[];
 }
 
 export const FieldIntroduce: React.FC<FieldIntroduceProps> = ({

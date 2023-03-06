@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import { FieldIntroduce } from '../../components/field-introduce';
 import {
@@ -19,35 +19,13 @@ import {
   safetyDescription2,
   safetyIntroduce,
 } from '../../constant';
+import { field } from '../../constant/field';
 
 import * as S from './styled';
 
 export const TeamPage: React.FC = () => {
-  const field: { title: string; id: string }[] = [
-    {
-      title: '기능부',
-      id: 'develop',
-    },
-    {
-      title: '홍보부',
-      id: 'marketing',
-    },
-    {
-      title: '행사기획부',
-      id: 'event',
-    },
-    {
-      title: '안전부',
-      id: 'safety',
-    },
-    {
-      title: '총모부',
-      id: 'general',
-    },
-  ];
-
   const [searchParams, setSearchParams] = useSearchParams();
-  const myQueryParam = searchParams.get('active');
+  const fieldName = searchParams.get('field');
 
   return (
     <S.Wrap>
@@ -61,40 +39,40 @@ export const TeamPage: React.FC = () => {
       </S.TitleWrap>
       <S.fieldWrap>
         {field.map(({ id, title }) => (
-          <S.fieldTitle key={id} to={`?active=${id}`} isActive={myQueryParam === id}>
+          <S.fieldTitle key={id} to={`?field=${id}`} isActive={fieldName === id}>
             {title}
           </S.fieldTitle>
         ))}
       </S.fieldWrap>
-      {myQueryParam === 'develop' ? (
+      {fieldName === 'develop' ? (
         <FieldIntroduce
           title="기능부 소개"
           description={developDescription}
           description2={developDescription2}
           introduction={developIntroduce}
         />
-      ) : myQueryParam === 'marketing' ? (
+      ) : fieldName === 'marketing' ? (
         <FieldIntroduce
           title="홍보부 소개"
           description={marketingDescription}
           description2={marketingDescription2}
           introduction={marketingIntroduce}
         />
-      ) : myQueryParam === 'event' ? (
+      ) : fieldName === 'event' ? (
         <FieldIntroduce
           title="행사기획부 소개"
           description={eventDescription}
           description2={eventDescription2}
           introduction={eventIntroduce}
         />
-      ) : myQueryParam === 'safety' ? (
+      ) : fieldName === 'safety' ? (
         <FieldIntroduce
           title="안전부 소개"
           description={safetyDescription}
           description2={safetyDescription2}
           introduction={safetyIntroduce}
         />
-      ) : myQueryParam === 'general' ? (
+      ) : fieldName === 'general' ? (
         <FieldIntroduce
           title="총모부 소개"
           description={safetyDescription}

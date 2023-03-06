@@ -4,7 +4,6 @@ export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   padding: 30px 0;
-  /* border: 1px solid white; */
   width: 100%;
 `;
 
