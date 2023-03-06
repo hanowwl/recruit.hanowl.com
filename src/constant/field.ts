@@ -1,4 +1,9 @@
-export const field: { title: string; id: string }[] = [
+export type FieldType = {
+  title: string;
+  id: string;
+};
+
+export const FIELD: FieldType[] = [
   {
     title: '기능부',
     id: 'develop',

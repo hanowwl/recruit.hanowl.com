@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 import * as S from './styled';
 

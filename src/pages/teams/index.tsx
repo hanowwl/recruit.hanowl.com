@@ -1,33 +1,33 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { FieldIntroduce } from '../../components/field-introduce';
-import { develop, event, general, marketing, safety } from '../../constant';
-import { field } from '../../constant/field';
-
 import * as S from './styled';
+
+import { develop, event, general, marketing, safety } from '@/constant/field-introduce';
+import { FieldIntroduce } from '@/components/FieldIntroduce';
+import { FIELD } from '@/constant/field';
 
 export const TeamPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const fieldName = searchParams.get('field');
 
   return (
-    <S.Wrap>
-      <S.TitleWrap>
+    <S.Container>
+      <S.TitleContainer>
         <S.Title>현재 모집 중인 부문</S.Title>
         <S.TitleMessage>
           알찬 학교 생활을 보내고 싶나요? 선/후배들과 친해지고 싶나요?
           <br />
           인싸가 되고 싶나요? 그럼 드루와 드루와
         </S.TitleMessage>
-      </S.TitleWrap>
-      <S.fieldWrap>
-        {field.map(({ id, title }) => (
-          <S.fieldTitle key={id} to={`?field=${id}`} isActive={fieldName === id}>
+      </S.TitleContainer>
+      <S.FieldWrap>
+        {FIELD.map(({ id, title }) => (
+          <S.FieldTitle key={id} to={`?field=${id}`} isActive={fieldName === id}>
             {title}
-          </S.fieldTitle>
+          </S.FieldTitle>
         ))}
-      </S.fieldWrap>
+      </S.FieldWrap>
       {fieldName === 'develop' ? (
         <FieldIntroduce
           title="기능부 소개"
@@ -76,6 +76,6 @@ export const TeamPage: React.FC = () => {
       <div>
         <S.ApplyButton>지원하기</S.ApplyButton>
       </div>
-    </S.Wrap>
+    </S.Container>
   );
 };

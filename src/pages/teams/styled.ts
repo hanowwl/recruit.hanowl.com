@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-export const Wrap = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 50px 0;
 `;
 
-export const TitleWrap = styled.div`
+export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -28,7 +28,7 @@ export const TitleMessage = styled.p`
   width: 490px;
 `;
 
-export const fieldWrap = styled.div`
+export const FieldWrap = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   width: 40%;
@@ -37,7 +37,7 @@ export const fieldWrap = styled.div`
   margin: 40px 0;
 `;
 
-export const fieldTitle = styled(Link)<{ isActive: boolean }>`
+export const FieldTitle = styled(Link)<{ isActive: boolean }>`
   font-size: 16px;
   font-weight: 500;
   color: #ffff;
