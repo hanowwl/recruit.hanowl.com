@@ -2,23 +2,7 @@ import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { FieldIntroduce } from '../../components/field-introduce';
-import {
-  developDescription,
-  developDescription2,
-  developIntroduce,
-  eventDescription,
-  eventDescription2,
-  eventIntroduce,
-  generalDescription,
-  generalDescription2,
-  generalIntroduce,
-  marketingDescription,
-  marketingDescription2,
-  marketingIntroduce,
-  safetyDescription,
-  safetyDescription2,
-  safetyIntroduce,
-} from '../../constant';
+import { develop, event, general, marketing, safety } from '../../constant';
 import { field } from '../../constant/field';
 
 import * as S from './styled';
@@ -47,44 +31,44 @@ export const TeamPage: React.FC = () => {
       {fieldName === 'develop' ? (
         <FieldIntroduce
           title="기능부 소개"
-          description={developDescription}
-          description2={developDescription2}
-          introduction={developIntroduce}
+          description={develop.description}
+          description2={develop.description2}
+          introduction={develop.introduce}
         />
       ) : fieldName === 'marketing' ? (
         <FieldIntroduce
           title="홍보부 소개"
-          description={marketingDescription}
-          description2={marketingDescription2}
-          introduction={marketingIntroduce}
+          description={marketing.description}
+          description2={marketing.description2}
+          introduction={marketing.introduce}
         />
       ) : fieldName === 'event' ? (
         <FieldIntroduce
           title="행사기획부 소개"
-          description={eventDescription}
-          description2={eventDescription2}
-          introduction={eventIntroduce}
+          description={event.description}
+          description2={event.description2}
+          introduction={event.introduce}
         />
       ) : fieldName === 'safety' ? (
         <FieldIntroduce
           title="안전부 소개"
-          description={safetyDescription}
-          description2={safetyDescription2}
-          introduction={safetyIntroduce}
+          description={safety.description}
+          description2={safety.description2}
+          introduction={safety.introduce}
         />
       ) : fieldName === 'general' ? (
         <FieldIntroduce
           title="총모부 소개"
-          description={safetyDescription}
-          description2={safetyDescription2}
-          introduction={safetyIntroduce}
+          description={general.description}
+          description2={general.description2}
+          introduction={general.introduce}
         />
       ) : (
         <FieldIntroduce
           title="기능부 소개"
-          description={generalDescription}
-          description2={generalDescription2}
-          introduction={generalIntroduce}
+          description={general.description}
+          description2={general.description2}
+          introduction={general.introduce}
         />
       )}
       <br />

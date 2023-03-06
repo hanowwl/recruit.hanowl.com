@@ -118,3 +118,33 @@ export const generalDescription = `
 `;
 
 export const generalDescription2 = '기능부는 배울 의지가 있고 열정 있는 친구들을 기다리고 있어요!';
+
+export const develop = {
+  description: developDescription,
+  description2: developDescription2,
+  introduce: developIntroduce,
+};
+
+export const event = {
+  description: eventDescription,
+  description2: eventDescription2,
+  introduce: eventIntroduce,
+};
+
+export const general = {
+  description: generalDescription,
+  description2: generalDescription2,
+  introduce: generalIntroduce,
+};
+
+export const marketing = {
+  description: marketingDescription,
+  description2: marketingDescription2,
+  introduce: marketingIntroduce,
+};
+
+export const safety = {
+  description: safetyDescription,
+  description2: safetyDescription2,
+  introduce: safetyIntroduce,
+};
