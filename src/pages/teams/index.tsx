@@ -109,6 +109,11 @@ export const TeamPage: React.FC = () => {
           introduction={generalIntroduce}
         />
       )}
+      <br />
+      <br />
+      <div>
+        <S.ApplyButton>지원하기</S.ApplyButton>
+      </div>
     </S.Wrap>
   );
 };

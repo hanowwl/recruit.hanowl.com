@@ -1,8 +1,6 @@
 import React from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
-import { ApplyButton } from '../button';
-
 import * as S from './styled';
 
 interface FieldIntroduceProps {
@@ -50,10 +48,6 @@ export const FieldIntroduce: React.FC<FieldIntroduceProps> = ({
           ))}
         </S.SubTitleUl>
       </div>
-      <br />
-      <br />
-      <br />
-      <ApplyButton />
     </S.Wrap>
   );
 };

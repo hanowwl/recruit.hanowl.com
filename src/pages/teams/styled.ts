@@ -43,3 +43,14 @@ export const fieldTitle = styled(Link)<{ isActive: boolean }>`
   color: #ffff;
   text-decoration: none;
 `;
+
+export const ApplyButton = styled.button`
+  padding: 8px 3rem;
+  background-color: #fff;
+  outline: none;
+  border: none;
+  color: #000;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+`;
