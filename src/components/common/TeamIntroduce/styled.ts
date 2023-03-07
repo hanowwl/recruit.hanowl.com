@@ -14,7 +14,7 @@ export const TeamIntroduceContainer = styled.div`
 export const SectionTitle = styled.h2`
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 `;
 
 export const SectionDescription = styled.p`
