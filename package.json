@@ -27,12 +27,19 @@
     "format": "prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "update-types": "npx supabase gen types typescript --project-id \"ccwsbtcyjgxeglanocrv\" > src/types/supabase.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-regular-svg-icons": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@supabase/supabase-js": "^2.10.0",
+    "framer-motion": "^10.1.0",
+    "jotai": "^2.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2"
@@ -54,6 +61,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
+    "supabase": "^1.41.6",
     "typescript": "^4.9.3",
     "vite": "^4.1.0"
   },
