@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 
 import * as S from './styled';
 
-import { TeamIntroduceSection } from '@/components';
+import { TeamIntroduce } from '@/components';
 import { TEAM_LIST } from '@/constant';
 
 export const TeamPage: React.FC = () => {
@@ -30,7 +30,7 @@ export const TeamPage: React.FC = () => {
             </S.TeamListItem>
           ))}
         </S.TeamList>
-        {activeTeam && <TeamIntroduceSection sections={activeTeam.sections} />}
+        {activeTeam && <TeamIntroduce sections={activeTeam.sections} />}
       </S.TeamIntroduceContainer>
 
       <div>

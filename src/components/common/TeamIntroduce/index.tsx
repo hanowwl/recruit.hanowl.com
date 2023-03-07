@@ -4,11 +4,11 @@ import * as S from './styled';
 
 import { TeamSection } from '@/constant';
 
-interface TeamIntroduceSectionProps {
+interface TeamIntroduceProps {
   sections: TeamSection[];
 }
 
-export const TeamIntroduceSection: React.FC<TeamIntroduceSectionProps> = ({ sections }) => {
+export const TeamIntroduce: React.FC<TeamIntroduceProps> = ({ sections }) => {
   return (
     <S.TeamIntroduceContainer>
       {sections.map(({ title, text, list }) => {
