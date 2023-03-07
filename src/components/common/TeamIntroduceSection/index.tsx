@@ -10,24 +10,23 @@ interface TeamIntroduceSectionProps {
 
 export const TeamIntroduceSection: React.FC<TeamIntroduceSectionProps> = ({ sections }) => {
   return (
-    <S.Container>
-      {sections.map((section) => {
+    <S.TeamIntroduceContainer>
+      {sections.map(({ title, text, list }) => {
         return (
           <section>
-            <div>
-              <S.Title>{section.title}</S.Title>
-            </div>
-            {section.text && <S.Description>{section.text}</S.Description>}
-            {section.list && (
-              <S.SubTitleUl>
-                {section.list.map((v, i) => {
-                  return <S.SubTitleLi key={i}>{v}</S.SubTitleLi>;
-                })}
-              </S.SubTitleUl>
+            <S.SectionTitle>{title}</S.SectionTitle>
+
+            {text && <S.SectionDescription>{text}</S.SectionDescription>}
+            {list && (
+              <S.SectionListUl>
+                {list.map((item, i) => (
+                  <S.SectionListItem key={i}>{item}</S.SectionListItem>
+                ))}
+              </S.SectionListUl>
             )}
           </section>
         );
       })}
-    </S.Container>
+    </S.TeamIntroduceContainer>
   );
 };

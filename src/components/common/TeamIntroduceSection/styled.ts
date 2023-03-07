@@ -1,29 +1,23 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
+export const TeamIntroduceContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   padding: 30px 0;
 
-  & > section:nth-of-type(2) {
+  & > section:not(:last-child) {
     margin: 30px 0;
   }
 `;
 
-export const Title = styled.h1`
+export const SectionTitle = styled.h2`
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 20px;
 `;
 
-export const SubTitle = styled.h2`
-  font-size: 20px;
-  font-weight: 600;
-  margin: 20px 0;
-`;
-
-export const Description = styled.p`
+export const SectionDescription = styled.p`
   font-size: 16px;
   font-weight: 400;
   width: 60%;
@@ -31,12 +25,12 @@ export const Description = styled.p`
   color: #bbbbbb;
 `;
 
-export const SubTitleUl = styled.ul`
+export const SectionListUl = styled.ul`
   margin-left: 20px;
   list-style: inside !important;
 `;
 
-export const SubTitleLi = styled.li`
+export const SectionListItem = styled.li`
   font-size: 16px;
   font-weight: 400;
   color: #bbbbbb;
