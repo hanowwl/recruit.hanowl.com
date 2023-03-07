@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 30px 0;
-  width: 100%;
-  > section:nth-of-type(2) {
+
+  & > section:nth-of-type(2) {
     margin: 30px 0;
   }
 `;
