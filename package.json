@@ -38,6 +38,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@supabase/supabase-js": "^2.10.0",
+    "framer-motion": "^10.1.0",
     "jotai": "^2.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
