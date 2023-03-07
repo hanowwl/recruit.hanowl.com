@@ -7,7 +7,7 @@ import { TeamIntroduceSection } from '@/components';
 import { TEAM_LIST } from '@/constant';
 
 export const TeamPage: React.FC = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const teamId = useMemo(() => searchParams.get('teamId') || TEAM_LIST[0].id, [searchParams]);
   const activeTeam = useMemo(() => TEAM_LIST.find((v) => v.id === teamId), [teamId]);
 
