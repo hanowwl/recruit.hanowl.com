@@ -2,16 +2,17 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
+export const TeamPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 30px 0;
 `;
 
-export const TitleContainer = styled.div`
+export const TeamPageTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  margin-bottom: 3rem;
 `;
 
 export const Title = styled.h1`
@@ -20,7 +21,7 @@ export const Title = styled.h1`
   margin-bottom: 10px;
 `;
 
-export const TitleMessage = styled.p`
+export const Description = styled.p`
   font-size: 16px;
   font-weight: 400;
   line-height: 1.3;
@@ -28,16 +29,23 @@ export const TitleMessage = styled.p`
   width: 490px;
 `;
 
-export const TeamWrap = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  width: 40%;
-  align-items: center;
-  justify-content: space-between;
-  margin: 40px 0;
+export const TeamIntroduceContainer = styled.div`
+  width: 100%;
+  margin-bottom: 5rem;
 `;
 
-export const TeamTitle = styled(Link)<{ isActive: boolean }>`
+export const TeamList = styled.ul`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  & > li {
+    float: left;
+  }
+`;
+
+export const TeamNameButton = styled(Link)<{ isActive: boolean }>`
   font-size: 16px;
   font-weight: 500;
   color: #ffff;
