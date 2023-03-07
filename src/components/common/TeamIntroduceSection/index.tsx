@@ -13,7 +13,7 @@ export const TeamIntroduceSection: React.FC<TeamIntroduceSectionProps> = ({ sect
     <S.TeamIntroduceContainer>
       {sections.map(({ title, text, list }) => {
         return (
-          <section>
+          <section key={title}>
             <S.SectionTitle>{title}</S.SectionTitle>
 
             {text && <S.SectionDescription>{text}</S.SectionDescription>}
