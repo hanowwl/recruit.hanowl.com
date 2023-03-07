@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as S from './styled';
 
-import { TeamSection } from '@/constant/teams';
+import { TeamSection } from '@/constant';
 
 interface TeamIntroduceSectionProps {
   sections: TeamSection[];
