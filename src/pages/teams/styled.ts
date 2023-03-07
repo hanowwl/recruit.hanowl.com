@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
+import { colors } from '@/styles/colors';
+import { css } from '@emotion/react';
 
 export const TeamPageContainer = styled.div`
   display: flex;
@@ -44,11 +46,19 @@ export const TeamList = styled.ul`
   }
 `;
 
-export const TeamNameButton = styled(Link)<{ isActive: boolean }>`
-  font-size: 1.6rem;
-  font-weight: 500;
-  color: #ffff;
+export const TeamNameLink = styled(Link)<{ isActive: boolean }>`
   text-decoration: none;
+  color: ${colors.white};
+  padding: 0.8rem 1.6rem;
+  border-radius: 10rem;
+  transition: background 150ms;
+  font-weight: 500;
+
+  ${(props) =>
+    props.isActive &&
+    css`
+      background-color: #151515;
+    `}
 `;
 
 export const ApplyButton = styled.button`

@@ -26,9 +26,9 @@ export const TeamPage: React.FC = () => {
         <S.TeamList>
           {TEAM_LIST.map(({ id, name }) => (
             <li key={id}>
-              <S.TeamNameButton to={`?teamId=${id}`} isActive={teamId === id}>
+              <S.TeamNameLink to={`?teamId=${id}`} isActive={teamId === id}>
                 {name}
-              </S.TeamNameButton>
+              </S.TeamNameLink>
             </li>
           ))}
         </S.TeamList>
