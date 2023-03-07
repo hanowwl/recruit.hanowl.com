@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 export const TeamPageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 30px 0;
+  margin: 3rem 0;
 `;
 
 export const TeamPageTitleContainer = styled.div`
@@ -16,17 +16,16 @@ export const TeamPageTitleContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 32px;
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 `;
 
 export const Description = styled.p`
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.3;
   color: #a9a9a9;
-  width: 490px;
 `;
 
 export const TeamIntroduceContainer = styled.div`
@@ -46,20 +45,20 @@ export const TeamList = styled.ul`
 `;
 
 export const TeamNameButton = styled(Link)<{ isActive: boolean }>`
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 500;
   color: #ffff;
   text-decoration: none;
 `;
 
 export const ApplyButton = styled.button`
-  margin-top: 20px;
-  padding: 8px 3rem;
+  margin-top: 2rem;
+  padding: 0.8rem 3rem;
   background-color: #fff;
   outline: none;
   border: none;
   color: #000;
-  border-radius: 6px;
-  font-size: 16px;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
   font-weight: 600;
 `;
