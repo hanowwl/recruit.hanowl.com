@@ -1,4 +1,6 @@
-export const MENU_LIST = [
+import { NavbarMenuItem } from '../components';
+
+export const MENU_LIST: NavbarMenuItem[] = [
   {
     text: '모집공고',
     href: '',
@@ -11,4 +13,4 @@ export const MENU_LIST = [
     text: '로그인',
     href: '',
   },
-] as const;
+];

@@ -1,12 +1,20 @@
-import { useEffect, useState } from 'react';
-
-import { MENU_LIST } from '../../../constant';
+import { useState } from 'react';
 
 import * as S from './styled';
 
 import { useScroll, useMotionValue, useMotionValueEvent } from 'framer-motion';
 
-export const Navbar: React.FC = () => {
+export interface NavbarMenuItem {
+  text: string;
+  href: string;
+  onClick?: React.MouseEventHandler;
+}
+
+export interface NavbarProps {
+  menu: NavbarMenuItem[];
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ menu }) => {
   const [hidden, setHidden] = useState<boolean>(false);
 
   const { scrollY } = useScroll();
@@ -32,8 +40,10 @@ export const Navbar: React.FC = () => {
         <S.NavbarTitle>HANOWL</S.NavbarTitle>
         <div>
           <S.NavbarMenuContainer>
-            {MENU_LIST.map((menu, i) => (
-              <li key={i}>{menu.text}</li>
+            {menu.map(({ href, text, onClick }) => (
+              <li key={href} onClick={onClick}>
+                {text}
+              </li>
             ))}
           </S.NavbarMenuContainer>
         </div>
