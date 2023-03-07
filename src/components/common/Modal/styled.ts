@@ -28,12 +28,12 @@ export const ModalOverlay = styled.div`
 `;
 
 export const ModalContainer = styled.div`
-  width: 36rem;
+  width: 40rem;
   max-height: 44rem;
   padding: 2rem;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(1.2rem);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
   border-radius: 1.2rem;
   animation: 200ms cubic-bezier(0.33, 1, 0.68, 1) ${modalOpenKeyframe};
 `;
@@ -63,7 +63,7 @@ export const ModalCloseButton = styled.button`
 `;
 
 export const ModalBodyContainer = styled.div`
-  padding: 1.6rem 0 2.4rem 0;
+  padding: 1.6rem 0.8rem 3.6rem 0.8rem;
   font-size: 1.8rem;
   color: ${colors.white};
   line-height: 120%;
@@ -75,6 +75,7 @@ export const ModalFooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  padding: 0 0.8rem;
 `;
 
 export const ModalFooterButtonsContainer = styled.div`

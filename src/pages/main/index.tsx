@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Modal } from '../../components';
+import { LoginModalContent } from '../../components/modal';
 import { useModal } from '../../hooks';
 
 export const MainPage: React.FC = () => {
@@ -12,9 +12,13 @@ export const MainPage: React.FC = () => {
         onClick={() =>
           open({
             header: {},
-            children: <>테스트</>,
+            children: <LoginModalContent />,
             footer: {
-              actions: [],
+              actions: [
+                {
+                  children: 'Google 계정으로 로그인',
+                },
+              ],
             },
             onClickClose: () => close(),
           })
