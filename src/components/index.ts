@@ -1,1 +1,2 @@
-export * from './common/Modal';
+export * from './common';
+export * from './layouts';
