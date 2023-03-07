@@ -41,15 +41,10 @@ export const TeamList = styled.ul`
   align-items: center;
   gap: 2rem;
   margin-bottom: 4rem;
-
-  & > li {
-    float: left;
-  }
 `;
 
-export const TeamNameLink = styled(Link)<{ isActive: boolean }>`
-  text-decoration: none;
-  color: ${colors.white};
+export const TeamListItem = styled.li<{ isActive: boolean }>`
+  float: left;
   padding: 0.8rem 1.6rem;
   border-radius: 10rem;
   transition: background 150ms;
@@ -60,6 +55,11 @@ export const TeamNameLink = styled(Link)<{ isActive: boolean }>`
     css`
       background-color: #151515;
     `}
+`;
+
+export const TeamNameLink = styled(Link)`
+  text-decoration: none;
+  color: ${colors.white};
 `;
 
 export const ApplyButton = styled.button`

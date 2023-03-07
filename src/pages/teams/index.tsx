@@ -25,14 +25,11 @@ export const TeamPage: React.FC = () => {
       <S.TeamIntroduceContainer>
         <S.TeamList>
           {TEAM_LIST.map(({ id, name }) => (
-            <li key={id}>
-              <S.TeamNameLink to={`?teamId=${id}`} isActive={teamId === id}>
-                {name}
-              </S.TeamNameLink>
-            </li>
+            <S.TeamListItem key={id} isActive={teamId === id}>
+              <S.TeamNameLink to={`?teamId=${id}`}>{name}</S.TeamNameLink>
+            </S.TeamListItem>
           ))}
         </S.TeamList>
-
         {activeTeam && <TeamIntroduceSection sections={activeTeam.sections} />}
       </S.TeamIntroduceContainer>
 
