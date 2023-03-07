@@ -40,6 +40,7 @@ export const TeamList = styled.ul`
   display: flex;
   align-items: center;
   gap: 2rem;
+  margin-bottom: 4rem;
 
   & > li {
     float: left;
