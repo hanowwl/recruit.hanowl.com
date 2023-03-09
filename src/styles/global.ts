@@ -1,8 +1,8 @@
+import { css } from '@emotion/react';
+
 import { pretendardFont } from './font';
 import { reset } from './reset';
 import { colors } from './colors';
-
-import { css } from '@emotion/react';
 
 export const globalStyle = css`
   ${reset}

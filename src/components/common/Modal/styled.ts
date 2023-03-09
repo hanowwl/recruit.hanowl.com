@@ -1,7 +1,7 @@
-import { colors } from '../../../styles/colors';
-
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+
+import { colors } from '../../../styles/colors';
 
 export const modalOpenKeyframe = keyframes`
     0% {
