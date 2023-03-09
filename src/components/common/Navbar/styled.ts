@@ -5,6 +5,8 @@ export const NavbarWrapper = styled(motion.nav)`
   width: 100%;
   position: fixed;
   height: 8rem;
+  backdrop-filter: blur(1rem);
+  background-color: rgba(0, 0, 0, 0.3);
 `;
 
 export const NavbarContainer = styled.div`
