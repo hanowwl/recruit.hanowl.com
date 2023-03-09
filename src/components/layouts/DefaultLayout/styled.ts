@@ -12,5 +12,5 @@ export const DefaultLayoutWrapper = styled.main`
   margin-right: auto;
   max-width: 1323px;
   height: 10000px;
-  padding: 0 1.5rem;
+  padding: 8rem 1.5rem 0 1.5rem;
 `;
