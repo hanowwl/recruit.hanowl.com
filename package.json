@@ -31,6 +31,7 @@
     "update-types": "npx supabase gen types typescript --project-id \"ccwsbtcyjgxeglanocrv\" > src/types/supabase.ts"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.10",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
@@ -39,6 +40,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@supabase/supabase-js": "^2.10.0",
     "framer-motion": "^10.1.0",
+    "graphql": "^16.6.0",
     "jotai": "^2.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
