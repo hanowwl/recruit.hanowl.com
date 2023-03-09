@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { Global } from '@emotion/react';
+
 import { App } from './App';
 import { globalStyle } from './styles';
 import { Modal } from './components';
 import { ENV } from './constant';
-
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { Global } from '@emotion/react';
 
 const client = new ApolloClient({
   uri: ENV.SUPABASE_URL,

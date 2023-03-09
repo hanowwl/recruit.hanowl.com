@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import * as S from './styled';
-
 import { TeamIntroduce } from '@/components';
 import { TEAM_LIST } from '@/constant';
+
+import * as S from './styled';
 
 export const TeamPage: React.FC = () => {
   const [searchParams] = useSearchParams();

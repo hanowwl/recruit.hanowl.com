@@ -21,6 +21,16 @@
         "pathGroups": [
           { "pattern": "{react*,react*/**}", "group": "external", "position": "before" }
         ],
+        "groups": [
+          "type",
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "unknown"
+        ],
         "pathGroupsExcludedImportTypes": ["react"],
         "newlines-between": "always"
       }

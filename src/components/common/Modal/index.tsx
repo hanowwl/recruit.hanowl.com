@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 
-import { modalsAtom } from '../../../atoms';
-
-import * as S from './styled';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useAtomValue } from 'jotai';
+
+import { modalsAtom } from '../../../atoms';
+
+import * as S from './styled';
 
 export interface ModalProps {
   children: React.ReactNode;
