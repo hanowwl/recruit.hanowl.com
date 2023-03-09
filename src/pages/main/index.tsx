@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { Schedule } from '@/components/section';
+import { SCHEDULE_LIST } from '@/constant/schedule';
+
 import { LoginModalContent } from '../../components/modal';
 import { useModal } from '../../hooks';
 
@@ -26,6 +29,7 @@ export const MainPage: React.FC = () => {
       >
         open modal
       </button>
+      <Schedule schedule={SCHEDULE_LIST} />
     </div>
   );
 };
