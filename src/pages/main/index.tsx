@@ -29,7 +29,7 @@ export const MainPage: React.FC = () => {
       >
         open modal
       </button>
-      <Schedule schedule={SCHEDULE_LIST} />
+      <Schedule />
     </div>
   );
 };

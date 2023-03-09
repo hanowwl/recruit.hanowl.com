@@ -1,4 +1,7 @@
-import { ScheduleItem } from '@/components/section';
+export interface ScheduleItem {
+  date: string;
+  content: string;
+}
 
 export const SCHEDULE_LIST: ScheduleItem[] = [
   {
