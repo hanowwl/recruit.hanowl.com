@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { LoginModalContent } from '../../components/modal';
-import { useModal } from '../../hooks';
+import { useModal, useToast } from '../../hooks';
 
 export const MainPage: React.FC = () => {
-  const { open, close, closeAll } = useModal();
+  const { open, close } = useModal();
+  const { toast } = useToast();
 
   return (
     <div>
@@ -25,6 +26,9 @@ export const MainPage: React.FC = () => {
         }
       >
         open modal
+      </button>
+      <button onClick={() => toast.error({ template: '클립보드에 복사되었습니다.' })}>
+        open Toast
       </button>
     </div>
   );
