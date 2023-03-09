@@ -26,7 +26,7 @@
     "lint": "eslint \"**/*.{js,jsx,ts,tsx,json}\" --fix --cache",
     "format": "prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "yarn codegen && tsc && vite build",
     "preview": "vite preview",
     "update-types": "npx supabase gen types typescript --project-id \"ccwsbtcyjgxeglanocrv\" > src/types/supabase.ts",
     "codegen": "graphql-codegen --config codegen.ts",
