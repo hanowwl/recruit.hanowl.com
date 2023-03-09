@@ -35,3 +35,11 @@ dist-ssr
 
 # ESLint cache
 .eslintcache
+
+# Environment Variables
+.env
+.env.*
+!.env.sample
+
+# Codegen Generated
+src/graphql/generated/

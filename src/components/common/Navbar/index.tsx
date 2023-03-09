@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import * as S from './styled';
-
 import { useScroll, useMotionValue, useMotionValueEvent } from 'framer-motion';
+
+import * as S from './styled';
 
 export interface NavbarMenuItem {
   text: string;

@@ -1,0 +1,10 @@
+query get_resume {
+  resumeCollection {
+    edges {
+      node {
+        id
+        submitted_at
+      }
+    }
+  }
+}

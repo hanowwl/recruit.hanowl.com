@@ -4,4 +4,5 @@
 node_modules
 dist
 
+src/graphql/generated/
 src/types/supabase.ts

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import * as S from './styled';
-
 import { TeamSection } from '@/constant';
+
+import * as S from './styled';
 
 interface TeamIntroduceProps {
   sections: TeamSection[];
