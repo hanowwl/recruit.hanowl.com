@@ -40,3 +40,6 @@ dist-ssr
 .env
 .env.*
 !.env.sample
+
+# Codegen Generated
+src/graphql/generated/

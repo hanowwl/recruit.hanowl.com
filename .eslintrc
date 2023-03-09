@@ -40,7 +40,7 @@
       "files": ["**/*.ts?(x)"],
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
-        "project": ["./tsconfig.json", "./tsconfig.node.json"]
+        "project": ["./tsconfig.json", "./tsconfig.eslint.json", "./tsconfig.node.json"]
       },
       "extends": ["plugin:@typescript-eslint/recommended"],
       "rules": {
