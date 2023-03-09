@@ -24,7 +24,8 @@ export const Navbar: React.FC<NavbarProps> = ({ menu }) => {
     const currentScrollY = scrollY.get();
     const isScrollingUp = currentScrollY < prevScrollY.get();
 
-    setHidden(currentScrollY > 100 && currentScrollY > prevScrollY.get() && !isScrollingUp);
+    // 스크롤의 Y 값이 증가 중이고, 현재 스크롤의 Y 값이 50보다 큰 경우
+    setHidden(currentScrollY > 50 && currentScrollY > prevScrollY.get() && !isScrollingUp);
     prevScrollY.set(currentScrollY);
   };
 
