@@ -1,4 +1,5 @@
 export * from './Footer';
 export * from './Modal';
+export * from './Toast';
 export * from './Navbar';
 export * from './TeamIntroduce';
