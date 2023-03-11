@@ -6,15 +6,15 @@ import * as S from './styled';
 
 export const Schedule: React.FC = () => {
   return (
-    <S.ScheduleContainerWrapper>
-      <S.Container>
+    <S.ScheduleWrapper>
+      <S.ScheduleContainer>
         <S.Title>
           학생회는 오늘도 <br />
           새로운 학교를 만들어가고 있습니다
         </S.Title>
-        <S.ScheduleContainer>
+        <S.Schedule>
           <S.ScheduleLine />
-          <S.Schedule>
+          <S.ScheduleContentWrapper>
             {SCHEDULE_LIST.map(({ date, content }, index) => (
               <S.ScheduleContentContainer key={index}>
                 <S.ScheduleEllipse />
@@ -24,9 +24,9 @@ export const Schedule: React.FC = () => {
                 </div>
               </S.ScheduleContentContainer>
             ))}
-          </S.Schedule>
-        </S.ScheduleContainer>
-      </S.Container>
-    </S.ScheduleContainerWrapper>
+          </S.ScheduleContentWrapper>
+        </S.Schedule>
+      </S.ScheduleContainer>
+    </S.ScheduleWrapper>
   );
 };

@@ -1,14 +1,14 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-export const ScheduleContainerWrapper = styled.section`
+export const ScheduleWrapper = styled.section`
   margin-top: 2.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const Container = styled.div`
+export const ScheduleContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +23,7 @@ export const Title = styled.h1`
   font-weight: 600;
 `;
 
-export const ScheduleContainer = styled.div`
+export const Schedule = styled.div`
   display: flex;
   align-self: flex-start;
   justify-content: space-between;
@@ -38,7 +38,7 @@ export const ScheduleLine = styled.span`
   margin-right: 2rem;
 `;
 
-export const Schedule = styled.div`
+export const ScheduleContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   &:first-of-type > div:first-of-type > div:first-of-type {
