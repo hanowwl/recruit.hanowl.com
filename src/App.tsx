@@ -1,8 +1,8 @@
 import React from 'react';
 import { Outlet, Route, Routes } from 'react-router-dom';
 
-import { DefaultLayout } from './components';
-import { MainPage, TeamPage } from './pages';
+import { AuthLayout, DefaultLayout } from './components';
+import { MainPage, TeamPage, SignInPage } from './pages';
 
 export const App: React.FC = () => {
   return (
@@ -17,6 +17,16 @@ export const App: React.FC = () => {
       >
         <Route index element={<MainPage />} />
         <Route path="/teams" element={<TeamPage />} />
+      </Route>
+      <Route
+        path="auth"
+        element={
+          <AuthLayout>
+            <Outlet />
+          </AuthLayout>
+        }
+      >
+        <Route path="signin" element={<SignInPage />} />
       </Route>
     </Routes>
   );
