@@ -42,9 +42,9 @@ export const Navbar: React.FC<NavbarProps> = ({ menu }) => {
         <div>
           <S.NavbarMenuContainer>
             {menu.map(({ href, text, onClick }) => (
-              <li key={href} onClick={onClick}>
+              <S.NavbarMenuItem key={href} onClick={onClick}>
                 {text}
-              </li>
+              </S.NavbarMenuItem>
             ))}
           </S.NavbarMenuContainer>
         </div>

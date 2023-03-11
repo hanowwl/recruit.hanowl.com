@@ -29,3 +29,14 @@ export const NavbarMenuContainer = styled.ul`
   display: flex;
   gap: 4rem;
 `;
+
+export const NavbarMenuItem = styled.li`
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  transition: all 0.2s;
+
+  :hover {
+    background-color: #161616;
+  }
+`;
