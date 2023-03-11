@@ -5,8 +5,6 @@ import { SCHEDULE_LIST } from '@/constant/schedule';
 import * as S from './styled';
 
 export const Schedule: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   return (
     <S.SectionContainer>
       <S.Container>
@@ -19,10 +17,7 @@ export const Schedule: React.FC = () => {
           <S.Schedule>
             {SCHEDULE_LIST.map(({ date, content }, index) => (
               <S.ScheduleContentContainer key={index}>
-                <S.ScheduleEllipse
-                  onClick={() => setActiveIndex(index)}
-                  isActive={activeIndex === index}
-                />
+                <S.ScheduleEllipse />
                 <div style={{ position: 'relative', bottom: '1.2rem' }}>
                   <S.ScheduleDate>{date}</S.ScheduleDate>
                   <S.ScheduleContent>{content}</S.ScheduleContent>

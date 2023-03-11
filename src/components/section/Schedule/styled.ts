@@ -41,9 +41,12 @@ export const ScheduleLine = styled.span`
 export const Schedule = styled.div`
   display: flex;
   flex-direction: column;
+  &:first-of-type > div:first-of-type > div:first-of-type {
+    border: 1px solid white;
+  }
 `;
 
-export const ScheduleEllipse = styled.div<{ isActive: boolean }>`
+export const ScheduleEllipse = styled.div`
   position: relative;
   right: 2.8rem;
   width: 1.2rem;
@@ -51,11 +54,6 @@ export const ScheduleEllipse = styled.div<{ isActive: boolean }>`
   border-radius: 50%;
   background-color: #575757;
   margin-right: 1rem;
-  ${(props) =>
-    props.isActive &&
-    css`
-      border: 1px solid white;
-    `}
 `;
 
 export const ScheduleContentContainer = styled.div`
