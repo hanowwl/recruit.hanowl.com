@@ -6,7 +6,7 @@ import * as S from './styled';
 
 export const Schedule: React.FC = () => {
   return (
-    <S.SectionContainer>
+    <S.ScheduleContainerWrapper>
       <S.Container>
         <S.Title>
           학생회는 오늘도 <br />
@@ -27,6 +27,6 @@ export const Schedule: React.FC = () => {
           </S.Schedule>
         </S.ScheduleContainer>
       </S.Container>
-    </S.SectionContainer>
+    </S.ScheduleContainerWrapper>
   );
 };

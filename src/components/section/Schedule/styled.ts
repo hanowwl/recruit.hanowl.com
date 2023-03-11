@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-export const SectionContainer = styled.section`
+export const ScheduleContainerWrapper = styled.section`
   margin-top: 2.3rem;
   display: flex;
   align-items: center;
