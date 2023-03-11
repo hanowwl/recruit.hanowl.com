@@ -3,11 +3,32 @@ import styled from '@emotion/styled';
 
 import { TextProps } from '.';
 
+const TEXT_BREAK_POINTS = [
+  1335, 1300, 1250, 1220, 1195, 1165, 1135, 1110, 1080, 1050, 1021, 995, 965, 936, 910, 880, 852,
+  823, 795, 768, 737, 710, 692, 653, 625, 595, 567, 540, 510, 482, 456, 428, 396, 376,
+];
+
 export const TextColumnContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+
+  @media screen and (max-width: 1300px) {
+    gap: 1.2rem;
+  }
+
+  @media screen and (max-width: 720px) {
+    gap: 1rem;
+  }
+
+  @media screen and (max-width: 575px) {
+    gap: 0.8rem;
+  }
+
+  @media screen and (max-width: 454px) {
+    gap: 0.6rem;
+  }
 `;
 
 export const TextRowContainer = styled.div`
@@ -18,6 +39,20 @@ export const TextRowContainer = styled.div`
   font-size: 8.8rem;
   font-weight: 800;
   gap: 1.2rem;
+
+  ${TEXT_BREAK_POINTS.reduce((prev, curr, i) => {
+    const size = (8.4 - 0.2 * i).toFixed(1);
+
+    return css`
+      ${prev}
+      @media screen and (max-width: ${curr}px) {
+        font-size: ${size}rem;
+        span {
+          height: ${size}rem;
+        }
+      }
+    `.styles;
+  }, '')}
 `;
 
 export const TextElement = styled.span<Omit<TextProps, 'children'>>`
@@ -46,5 +81,9 @@ export const TextElement = styled.span<Omit<TextProps, 'children'>>`
       color: #000000;
       background-color: white;
       padding: 0 1.2rem;
+
+      /* @media screen and (max-width: 1300px) {
+        // padding: 0 1.6rem;
+      } */
     `}
 `;
