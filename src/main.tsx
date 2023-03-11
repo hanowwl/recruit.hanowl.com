@@ -12,7 +12,7 @@ import { Modal, Toast } from './components';
 import { ENV } from './constant';
 import { supabase } from './supabase';
 
-const httpLink = createHttpLink({ uri: `${ENV.SUPABASE_URL}/graphql` });
+const httpLink = createHttpLink({ uri: `${ENV.SUPABASE_URL}/graphql/v1` });
 const authLink = setContext(async (_, { headers }) => {
   const {
     data: { session },
