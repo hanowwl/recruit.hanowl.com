@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Schedule } from '@/components/section';
+import { Schedule } from '@/components/main';
 import { SCHEDULE_LIST } from '@/constant/schedule';
 
 import { LoginModalContent } from '../../components/modal';
@@ -33,7 +33,7 @@ export const MainPage: React.FC = () => {
       <button onClick={() => toast.error({ template: '클립보드에 복사되었습니다.' })}>
         open Toast
       </button>
-      
+
       <Schedule />
     </div>
   );
