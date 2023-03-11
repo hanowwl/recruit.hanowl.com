@@ -14,8 +14,8 @@ export const BlurCircleElement = styled(motion.div)<
 `;
 
 export const BlurCircleSectionContainer = styled.section`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: relative;
 `;
 
