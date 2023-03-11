@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Schedule } from '@/components/main';
-import { SCHEDULE_LIST } from '@/constant/schedule';
+import { Schedule } from '@/components';
 
 import { LoginModalContent } from '../../components/modal';
 import { useModal, useToast } from '../../hooks';
