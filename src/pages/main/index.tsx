@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Schedule } from '@/components';
+
 import { LoginModalContent } from '../../components/modal';
 import { useModal, useToast } from '../../hooks';
 
@@ -30,6 +32,8 @@ export const MainPage: React.FC = () => {
       <button onClick={() => toast.error({ template: '클립보드에 복사되었습니다.' })}>
         open Toast
       </button>
+
+      <Schedule />
     </div>
   );
 };

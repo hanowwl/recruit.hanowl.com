@@ -22,7 +22,6 @@ ReactDOM.createRoot(document.getElementById('app') as HTMLElement).render(
         <Global styles={[globalStyle]} />
         <Modal.Container />
         <Toast />
-        
         <App />
       </BrowserRouter>
     </ApolloProvider>
