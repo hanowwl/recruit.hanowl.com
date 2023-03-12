@@ -1,14 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { SCHOOL } from '@/constant';
 import { Input } from '@/components';
-import { supabase } from '@/supabase';
-import { useToast } from '@/hooks';
-import { useMutation } from '@apollo/client';
-
-import { InsertUserDocument } from '../../../graphql/generated/hooks';
+import { useAuth } from '@/providers';
 
 import * as S from './styled';
 
@@ -16,6 +12,7 @@ interface SignUpFormValues {
   email: string;
   password: string;
   name: string;
+  phone: string;
   passwordCheck: string;
   studentDepart: string;
   studentGrade: number;
@@ -24,11 +21,8 @@ interface SignUpFormValues {
 }
 
 export const SignUpPage: React.FC = () => {
-  const navigate = useNavigate();
-
-  const [insertUser, { data, loading, error }] = useMutation(InsertUserDocument);
+  const { signUp } = useAuth();
   const [isAllValuesEntered, setIsAllValuesEntered] = useState<boolean>(false);
-  const { toast } = useToast();
 
   const [departments, setDepartments] = useState<string[]>([]);
   const [classRoom, setClassRoom] = useState<number[]>([]);
@@ -45,38 +39,8 @@ export const SignUpPage: React.FC = () => {
   const password = useRef({});
   password.current = watch('password', '');
 
-  const onSubmit = async (props: SignUpFormValues) => {
-    const { email, password, name, studentDepart, studentClass, studentGrade, studentNumber } =
-      props;
-
-    try {
-      const { data } = await supabase.auth.signUp({
-        email,
-        password,
-      });
-
-      if (data.user) {
-        const {
-          data: {},
-        } = await insertUser({
-          variables: {
-            id: data.user?.id,
-            name,
-            studentDepart,
-            studentClass,
-            studentGrade,
-            studentNumber,
-            phone: '01077568431',
-          },
-        });
-
-        return toast.success({ template: '가입 성공! 뭔가 더 가까워진 느낌? 😎' });
-      }
-
-      toast.error({ template: '이미 가입한 계정이 있어요 😕' });
-    } catch (error) {
-      toast.error({ template: '가입에 문제가 생겼어요! 다음에 다시 시도해주세요 😢' });
-    }
+  const onSubmit = async (values: SignUpFormValues) => {
+    await signUp(values);
   };
 
   useEffect(() => {
@@ -121,7 +85,7 @@ export const SignUpPage: React.FC = () => {
 
   return (
     <S.SignUpForm onSubmit={handleSubmit(onSubmit)}>
-      <S.AffiliationInfo>hanowl</S.AffiliationInfo>
+      <S.AffiliationInfo>HANOWL</S.AffiliationInfo>
       <S.SignUpTitle>회원가입</S.SignUpTitle>
       <S.SignUpInputContainer>
         <Input
@@ -130,7 +94,12 @@ export const SignUpPage: React.FC = () => {
           error={!!errors.email?.message}
           message={errors.email?.message}
           {...register('email', {
-            required: '올바른 아이디 또는 비밀번호를 입력해주세요.',
+            required: '올바른 이메일을 입력해주세요',
+            pattern: {
+              value:
+                /^[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i,
+              message: '잘못된 이메일 주소에요. 다시 입력해주세요.',
+            },
           })}
         />
         <Input
@@ -171,6 +140,20 @@ export const SignUpPage: React.FC = () => {
             pattern: {
               value: /^[가-힣]{2,4}$/,
               message: '2~4자, 한글로 이루어진 이름을 입력해주세요',
+            },
+          })}
+        />
+        <Input
+          label="전화번호"
+          type="text"
+          error={!!errors.phone?.message}
+          message={errors.phone?.message}
+          pattern="[0-9]*"
+          {...register('phone', {
+            required: '전화번호를 입력해주세요.',
+            pattern: {
+              value: /01[0-1, 7][0-9]{7,8}$/,
+              message: '잘못된 전화번호에요. 다시 입력해주세요',
             },
           })}
         />
@@ -224,9 +207,9 @@ export const SignUpPage: React.FC = () => {
         </S.SignUpSelectContainer>
       </S.SignUpInputContainer>
       <S.SignUpContainer>
-        <span>
-          이미 계정이 있으신가요? <span>로그인</span>
-        </span>
+        <S.SignUpLinkContainer>
+          이미 계정이 있으신가요? <Link to="/auth/signin">로그인</Link>
+        </S.SignUpLinkContainer>
         <button type="submit" disabled={!isAllValuesEntered}>
           가입하기
         </button>

@@ -43,6 +43,7 @@ export const SignUpSelectContainer = styled.div`
 `;
 
 export const Step3SelectListContainer = styled.div`
+  margin-top: 1rem;
   display: flex;
   gap: 10px;
 `;
@@ -73,4 +74,18 @@ export const SignUpLabel = styled.label`
   font-size: 1.4rem;
   color: #595865;
   padding: 0.8rem 0;
+`;
+
+export const SignUpLinkContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  user-select: none;
+
+  a {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+  }
 `;
