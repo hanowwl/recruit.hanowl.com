@@ -36,9 +36,9 @@ export const TextRowContainer = styled.div`
   display: flex;
   align-items: center;
   z-index: 99;
-  font-size: 8.8rem;
+  font-size: 7.5rem;
   font-weight: 800;
-  gap: 1.2rem;
+  gap: 1rem;
 
   ${TEXT_BREAK_POINTS.reduce((prev, curr, i) => {
     const size = (8.4 - 0.2 * i).toFixed(1);
@@ -64,7 +64,7 @@ export const TextElement = styled.span<Omit<TextProps, 'children'>>`
     props.fill &&
     css`
       flex: 1;
-      height: 8.8rem;
+      height: 6.8rem;
       background: ${typeof props.fill === 'object' ? `url(${props.fill.url})` : 'white'};
 
       ${typeof props.fill === 'object' &&

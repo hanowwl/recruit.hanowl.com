@@ -64,6 +64,11 @@ export const MainSection: React.FC = () => {
           <Text fill></Text>
           <Text>날이면 날마다 오는 기회가 아니에요</Text>
         </Text.Row>
+        <Text.Row>
+          <Text>진짜라니까? </Text>
+          <Text fill></Text>
+          <Text>일단 지원해봐</Text>
+        </Text.Row>
       </Text.Column>
     </BlurCircle.Section>
   );

@@ -14,7 +14,7 @@ export const NavbarContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 0 1.5rem;
-  max-width: 1323px;
+  max-width: 1123px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;

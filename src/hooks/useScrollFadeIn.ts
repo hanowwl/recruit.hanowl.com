@@ -13,7 +13,7 @@ export const useScrollFadeIn = <T extends HTMLElement>(
   const handleDirection = (name: string) => {
     switch (name) {
       case 'up':
-        return 'translate3d(0, 50%, 0)';
+        return 'translate3d(0, 20%, 0)';
       case 'down':
         return 'translate3d(0, -50%, 0)';
       case 'left':
