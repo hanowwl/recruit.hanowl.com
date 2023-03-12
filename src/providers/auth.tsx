@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useLayoutEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { AuthError, Session } from '@supabase/supabase-js';
@@ -47,12 +47,14 @@ export const AuthContext = React.createContext<AuthProviderContext | null>(null)
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const [init, setInit] = useState<boolean>(false);
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const { refetch } = useGetUserProfileQuery({
     skip: true,
     onCompleted: ({ usersCollection }) => {
       const newProfile = usersCollection?.edges[0].node;
+      setInit(true);
 
       if (newProfile) {
         setProfile(newProfile);
@@ -60,12 +62,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       }
     },
     onError: (error) => {
+      setInit(true);
       toast.error({ template: error.message });
     },
   });
   const [insertUser] = useInsertUserMutation();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const initialize = async () => {
       const { data } = await supabase.auth.getSession();
       if (data) setSession(data.session);
@@ -82,7 +85,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     };
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!session) return;
     refetch({ filter: { id: { eq: session.user.id } } });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -140,7 +143,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     profile,
   };
 
-  return <AuthContext.Provider value={context}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={context}>{init && children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => {
