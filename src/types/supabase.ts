@@ -21,7 +21,7 @@ export interface Database {
         Insert: {
           case_id: number
           created_at?: string | null
-          id: number
+          id?: number
           submitted_at?: string | null
           updated_at?: string | null
           user_id: string
@@ -43,7 +43,7 @@ export interface Database {
           value: string
         }
         Insert: {
-          id: number
+          id?: number
           input_id: number
           resume_id: number
           value?: string
@@ -63,7 +63,7 @@ export interface Database {
         }
         Insert: {
           created_at?: string | null
-          id: number
+          id?: number
           name: string
         }
         Update: {
@@ -80,7 +80,7 @@ export interface Database {
         }
         Insert: {
           case_id: number
-          id: number
+          id?: number
           input_id: number
         }
         Update: {

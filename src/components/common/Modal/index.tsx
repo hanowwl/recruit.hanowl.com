@@ -5,6 +5,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useAtomValue } from 'jotai';
 
 import { modalsAtom } from '../../../atoms';
+import { Button, ButtonProps } from '../Button';
 
 import * as S from './styled';
 
@@ -24,12 +25,13 @@ export interface ModalProps {
   footer: {
     props?: React.HTMLAttributes<HTMLDivElement>;
     text?: React.ReactNode;
-    actions: React.ButtonHTMLAttributes<HTMLButtonElement>[];
+    actions: ButtonProps[];
   };
 }
 
 const ModalElement: React.FC<ModalProps> = ({ children, header, body, footer, onClickClose }) => {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.body.style.overflow = 'hidden';
     return () => {
       document.body.style.overflow = 'unset';
@@ -51,7 +53,7 @@ const ModalElement: React.FC<ModalProps> = ({ children, header, body, footer, on
       <S.ModalFooterContainer {...footer.props}>
         <S.ModalFooterButtonsContainer>
           {footer.actions.map((props, i) => {
-            return <S.Button key={i} {...props} />;
+            return <Button key={i} {...props} />;
           })}
         </S.ModalFooterButtonsContainer>
 

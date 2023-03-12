@@ -1,12 +1,14 @@
 import { useState } from 'react';
 
 import { useScroll, useMotionValue, useMotionValueEvent } from 'framer-motion';
+import { useAuth, UserProfile } from '@/providers';
 
 import * as S from './styled';
 
 export interface NavbarMenuItem {
   text: string;
   href: string;
+  permission?: (profile: UserProfile | null) => boolean;
   onClick?: React.MouseEventHandler;
 }
 
@@ -16,6 +18,7 @@ export interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ menu }) => {
   const [hidden, setHidden] = useState<boolean>(false);
+  const { profile } = useAuth();
 
   const { scrollY } = useScroll();
   const prevScrollY = useMotionValue(0);
@@ -38,14 +41,19 @@ export const Navbar: React.FC<NavbarProps> = ({ menu }) => {
       transition={{ ease: [0.1, 0.25, 0.3, 1], duration: 0.6 }}
     >
       <S.NavbarContainer>
-        <S.NavbarTitle>HANOWL</S.NavbarTitle>
+        <S.NavbarTitle>
+          <S.NavbarLink to="/">HANOWL</S.NavbarLink>
+        </S.NavbarTitle>
         <div>
           <S.NavbarMenuContainer>
-            {menu.map(({ href, text, onClick }) => (
-              <li key={href} onClick={onClick}>
-                {text}
-              </li>
-            ))}
+            {menu.map(({ href, text, onClick, permission = () => true }) => {
+              if (permission(profile))
+                return (
+                  <S.NavbarMenuItem key={href} onClick={onClick}>
+                    <S.NavbarLink to={href}>{text}</S.NavbarLink>
+                  </S.NavbarMenuItem>
+                );
+            })}
           </S.NavbarMenuContainer>
         </div>
       </S.NavbarContainer>
