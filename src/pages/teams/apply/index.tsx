@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
@@ -100,6 +100,7 @@ export const TeamApplyPage: React.FC = () => {
       console.error(error);
       toast.error({ template: '지원서 데이터를 불러오는 도중 오류가 발생했어요' });
     },
+    fetchPolicy: 'no-cache',
   });
   const { resumeId, submittedAt, inputs, answers } = useMemo(() => {
     const isNotCreated = resumeWithInputAndAnswers?.resumeCollection?.edges.length === 0;
