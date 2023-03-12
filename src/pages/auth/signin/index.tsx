@@ -45,6 +45,7 @@ export const SignInPage: React.FC = () => {
           label="비밀번호"
           type="password"
           placeholder="비밀번호를 입력해주세요."
+          autoComplete="on"
           message={errors.password?.message}
           error={Boolean(errors.password?.message)}
           {...register('password', {
