@@ -4,10 +4,9 @@ import { useForm } from 'react-hook-form';
 
 import {
   useCreateResumeMutation,
-  useGetResumeAnswerQuery,
-  useGetResumeInputQuery,
-  useGetResumeQuery,
   useUpdateResumeSubmittedAtMutation,
+  useGetResumeCaseQuery,
+  useGetResumeWithInputAndAnswersQuery,
 } from '@/graphql/generated/hooks';
 import { TEAM_LIST } from '@/constant';
 import { Button, Input } from '@/components';
@@ -36,20 +35,13 @@ export const TeamApplyPage: React.FC = () => {
   const { teamId } = useParams<{ teamId: string }>();
   const team = useMemo(() => TEAM_LIST.find((v) => v.id === teamId), [teamId]);
 
-  const { data, loading, error } = useGetResumeInputQuery({
-    variables: { filter: { name: { eq: teamId } } },
-    onCompleted: () => {
-      refetchResume();
-    },
-  });
-
   const [createResume] = useCreateResumeMutation({
     onCompleted: () => {
-      refetchResume();
+      refetchResumeWithData();
     },
     onError: (error) => {
       toast.error({ template: '지원서 생성 중 오류가 발생했어요' });
-      console.log(error);
+      console.error(error);
     },
   });
 
@@ -86,50 +78,50 @@ export const TeamApplyPage: React.FC = () => {
     },
   });
 
-  const { data: resume, refetch: refetchResume } = useGetResumeQuery({
-    variables: { filter: { user_id: { eq: profile?.id } } },
-    onCompleted: (_data) => {
-      const isEmpty = _data.resumeCollection?.edges.length === 0;
-      if (isEmpty) {
-        createResume({
-          variables: {
-            userId: profile?.id,
-            caseId: data?.resume_caseCollection?.edges[0].node.id as number,
-          },
-        });
-      }
+  const { data: resumeCase } = useGetResumeCaseQuery({ variables: { teamId } });
+  const caseId = useMemo(() => resumeCase?.resume_caseCollection?.edges[0].node.id, [resumeCase]);
+  const {
+    data: resumeWithInputAndAnswers,
+    refetch: refetchResumeWithData,
+    loading,
+  } = useGetResumeWithInputAndAnswersQuery({
+    variables: { userId: profile?.id, caseId: caseId },
+    onCompleted: ({ resumeCollection }) => {
+      const isNotCreated = resumeCollection?.edges.length === 0;
 
-      refetchAnswers();
+      if (isNotCreated) {
+        createResume({ variables: { userId: profile?.id, caseId: caseId as number } });
+        refetchResumeWithData();
+      } else {
+        window.scrollTo(0, 0);
+      }
+    },
+    onError: (error) => {
+      console.error(error);
+      toast.error({ template: '지원서 데이터를 불러오는 도중 오류가 발생했어요' });
     },
   });
+  const { resumeId, submittedAt, inputs, answers } = useMemo(() => {
+    const isNotCreated = resumeWithInputAndAnswers?.resumeCollection?.edges.length === 0;
+    if (isNotCreated) return { resumeId: 0, submittedAt: null, inputs: [], answers: [] };
 
-  const { data: answerCollection, refetch: refetchAnswers } = useGetResumeAnswerQuery({
-    variables: { filter: { resume_id: { eq: resume?.resumeCollection?.edges[0].node.id } } },
-  });
+    const response = resumeWithInputAndAnswers?.resumeCollection?.edges[0].node;
 
-  const inputs = useMemo(() => {
-    const resumeCase = data?.resume_caseCollection?.edges[0].node;
-    const resumeInputs = resumeCase?.resume_case_inputCollection?.edges.map((v) => v.node);
+    const inputs =
+      response?.resume_case?.resume_case_inputCollection?.edges.map((v) => v.node) || [];
+    const answers = response?.resume_answerCollection?.edges.map((v) => v.node) || [];
 
-    return resumeInputs || [];
-  }, [data]);
-
-  const answers = useMemo(() => {
-    return answerCollection?.resume_answerCollection?.edges.map((v) => v.node) || [];
-  }, [answerCollection]);
-
-  useEffect(() => {
-    if (error) {
-      console.log(error);
-      toast.error({ template: '지원서 폼을 로딩하는 도중 오류가 발생했어요' });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [error]);
-
-  useEffect(() => {
     answers.forEach((v) => setValue(v.input_id.toString(), v.value));
+
+    return {
+      resumeId: response?.id,
+      submittedAt: response?.submitted_at ? new Date(response?.submitted_at) : null,
+
+      inputs,
+      answers,
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [answers]);
+  }, [resumeWithInputAndAnswers]);
 
   const saveResume = async ({ submit }: { submit: boolean }) => {
     try {
@@ -140,15 +132,16 @@ export const TeamApplyPage: React.FC = () => {
         inputId.map((id) => ({
           id: answers.find((v) => v.input_id === parseInt(id))?.id,
           input_id: parseInt(id),
-          resume_id: resume?.resumeCollection?.edges[0].node.id as number,
+          resume_id: resumeId as number,
           value: formData[id] || '',
         }))
       );
+
       if (submit) {
         updateResumeSubmittedAt({
           variables: {
             set: { submitted_at: new Date().toISOString().toLocaleString() },
-            filter: { id: { eq: resume?.resumeCollection?.edges[0].node.id as number } },
+            filter: { id: { eq: resumeId as number } },
           },
         });
       } else {
@@ -196,7 +189,7 @@ export const TeamApplyPage: React.FC = () => {
     <S.ApplyFormContainer onSubmit={handleSubmit(onSubmit)}>
       {loading && <>로딩 중</>}
 
-      {data && (
+      {resumeWithInputAndAnswers && (
         <>
           <S.ApplyFormTitle>{team.name} 지원서</S.ApplyFormTitle>
           <S.ApplyFormInputContainer>
@@ -241,7 +234,7 @@ export const TeamApplyPage: React.FC = () => {
             />
           </S.ApplyFormInputContainer>
           <S.ApplyButtonContainer>
-            {resume?.resumeCollection?.edges[0].node.submitted_at ? (
+            {submittedAt ? (
               <Button type="button" variant="danger" size="large" fillWidth disabled>
                 이미 최종 제출한 지원서에요
               </Button>

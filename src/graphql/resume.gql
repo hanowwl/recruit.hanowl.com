@@ -1,3 +1,11 @@
+mutation updateResumeSubmittedAt($set: resumeUpdateInput!, $filter: resumeFilter) {
+  updateresumeCollection(set: $set, filter: $filter) {
+    records {
+      submitted_at
+    }
+  }
+}
+
 mutation createResume($userId: UUID!, $caseId: Int!) {
   insertIntoresumeCollection(objects: { user_id: $userId, case_id: $caseId }) {
     records {
@@ -7,37 +15,58 @@ mutation createResume($userId: UUID!, $caseId: Int!) {
   }
 }
 
-mutation updateResumeSubmittedAt($set: resumeUpdateInput!, $filter: resumeFilter) {
-  updateresumeCollection(set: $set, filter: $filter) {
-    records {
-      submitted_at
-    }
-  }
-}
-
-query getResume($filter: resumeFilter) {
-  resumeCollection(filter: $filter) {
+query getResumeCase($teamId: String) {
+  resume_caseCollection(filter: { name: { eq: $teamId } }) {
     edges {
       node {
         id
-        case_id
-        user_id
-        updated_at
-        submitted_at
-        created_at
+        name
       }
     }
   }
 }
 
-query getResumeAnswer($filter: resume_answerFilter) {
-  resume_answerCollection(filter: $filter) {
+query getResumeWithInputAndAnswers($userId: UUID!, $caseId: Int) {
+  resumeCollection(filter: { user_id: { eq: $userId }, case_id: { eq: $caseId } }) {
     edges {
       node {
         id
-        input_id
-        value
-        resume_id
+        case_id
+        user_id
+        submitted_at
+
+        resume_case {
+          id
+          name
+          resume_case_inputCollection {
+            edges {
+              node {
+                case_id
+                input_id
+                resume_input {
+                  id
+                  max
+                  min
+                  name
+                  type
+                  regex
+                  requirement
+                }
+              }
+            }
+          }
+        }
+
+        resume_answerCollection {
+          edges {
+            node {
+              id
+              value
+              input_id
+              resume_id
+            }
+          }
+        }
       }
     }
   }
