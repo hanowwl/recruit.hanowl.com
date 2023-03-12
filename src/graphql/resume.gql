@@ -1,0 +1,36 @@
+mutation createResume($userId: UUID!, $caseId: Int!) {
+  insertIntoresumeCollection(objects: { user_id: $userId, case_id: $caseId }) {
+    records {
+      user_id
+      case_id
+    }
+  }
+}
+
+query getResume($filter: resumeFilter) {
+  resumeCollection(filter: $filter) {
+    edges {
+      node {
+        id
+        case_id
+        user_id
+        updated_at
+        submitted_at
+        created_at
+      }
+    }
+  }
+}
+
+query getResumeAnswer($filter: resume_answerFilter) {
+  resume_answerCollection(filter: $filter) {
+    edges {
+      node {
+        id
+        input_id
+        value
+        resume_id
+      }
+    }
+  }
+}

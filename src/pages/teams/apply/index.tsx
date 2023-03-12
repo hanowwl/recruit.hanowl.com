@@ -2,10 +2,17 @@ import React, { useEffect, useMemo } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
-import { useGetResumeInputLazyQuery } from '@/graphql/generated/hooks';
+import {
+  useCreateResumeMutation,
+  useGetResumeAnswerQuery,
+  useGetResumeInputQuery,
+  useGetResumeQuery,
+} from '@/graphql/generated/hooks';
 import { TEAM_LIST } from '@/constant';
 import { Input } from '@/components';
 import { useToast } from '@/hooks';
+import { useAuth } from '@/providers';
+import { supabase } from '@/supabase';
 
 import * as S from './styled';
 
@@ -17,14 +24,52 @@ export const TeamApplyPage: React.FC = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<ApplyFormValues>();
   const { toast } = useToast();
+  const { profile } = useAuth();
   const { teamId } = useParams<{ teamId: string }>();
   const team = useMemo(() => TEAM_LIST.find((v) => v.id === teamId), [teamId]);
-  const [fetch, { data, loading, error }] = useGetResumeInputLazyQuery({
+
+  const { data, loading, error } = useGetResumeInputQuery({
     variables: { filter: { name: { eq: teamId } } },
+    onCompleted: () => {
+      refetchResume();
+    },
   });
+
+  const [createResume] = useCreateResumeMutation({
+    onCompleted: () => {
+      refetchResume();
+    },
+    onError: (error) => {
+      toast.error({ template: '지원서 생성 중 오류가 발생했어요' });
+      console.log(error);
+    },
+  });
+
+  const { data: resume, refetch: refetchResume } = useGetResumeQuery({
+    variables: { filter: { user_id: { eq: profile?.id } } },
+    onCompleted: (_data) => {
+      const isEmpty = _data.resumeCollection?.edges.length === 0;
+      if (isEmpty) {
+        createResume({
+          variables: {
+            userId: profile?.id,
+            caseId: data?.resume_caseCollection?.edges[0].node.id as number,
+          },
+        });
+      }
+
+      refetchAnswers();
+    },
+  });
+
+  const { data: answerCollection, refetch: refetchAnswers } = useGetResumeAnswerQuery({
+    variables: { filter: { resume_id: { eq: resume?.resumeCollection?.edges[0].node.id } } },
+  });
+
   const inputs = useMemo(() => {
     const resumeCase = data?.resume_caseCollection?.edges[0].node;
     const resumeInputs = resumeCase?.resume_case_inputCollection?.edges.map((v) => v.node);
@@ -32,10 +77,9 @@ export const TeamApplyPage: React.FC = () => {
     return resumeInputs || [];
   }, [data]);
 
-  useEffect(() => {
-    fetch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const answers = useMemo(() => {
+    return answerCollection?.resume_answerCollection?.edges.map((v) => v.node) || [];
+  }, [answerCollection]);
 
   useEffect(() => {
     if (error) {
@@ -45,9 +89,34 @@ export const TeamApplyPage: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error]);
 
+  useEffect(() => {
+    answers.forEach((v) => setValue(v.input_id.toString(), v.value));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [answers]);
+
+  const onSubmit = async (formData: ApplyFormValues) => {
+    try {
+      const inputId = Object.keys(formData);
+
+      await supabase.from('resume_answer').upsert(
+        inputId.map((id) => ({
+          id: answers.find((v) => v.input_id === parseInt(id))?.id,
+          input_id: parseInt(id),
+          resume_id: resume?.resumeCollection?.edges[0].node.id as number,
+          value: formData[id] || '',
+        }))
+      );
+
+      toast.success({ template: '지원서가 저장되었어요' });
+    } catch (error) {
+      console.error(error);
+      toast.error({ template: '지원서를 저장하는 도중 오류가 발생했어요' });
+    }
+  };
+
   if (!teamId || !team) return <Navigate to="/teams/tech" />;
   return (
-    <S.ApplyFormContainer onSubmit={handleSubmit((data) => console.log(data))}>
+    <S.ApplyFormContainer onSubmit={handleSubmit(onSubmit)}>
       {loading && <>로딩 중</>}
 
       {data && (
