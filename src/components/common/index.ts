@@ -4,3 +4,4 @@ export * from './Modal';
 export * from './Toast';
 export * from './Navbar';
 export * from './TeamIntroduce';
+export * from './PrivateRoute';
