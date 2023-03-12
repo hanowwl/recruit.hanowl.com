@@ -29,7 +29,5 @@ export const QnAMenuContent = styled(Link)<{ isActive: boolean }>`
   line-height: normal;
   padding: 1.4rem;
   text-decoration: none;
-  // isActive ? color white or gray
-  color: ${({ isActive }) => (isActive ? '#171717' : 'gray')};
-  /* color: #171717; */
+  color: ${({ isActive }) => (isActive ? '#171717' : '#BABABA')};
 `;

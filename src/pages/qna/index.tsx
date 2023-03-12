@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 import { SelectMenuSection } from '@/components';
 import { QNA_MENU_LIST } from '@/constant/qnaMenu';
+import { QnASection } from '@/components/qna/QnASection';
 
 import * as S from './styled';
 
@@ -27,7 +28,14 @@ export const QnAPage: React.FC = () => {
         {QNA_MENU_LIST.filter(({ href }) => location.pathname === `/qna/${href}`)[0].text}
         {isOpened ? <FaChevronUp /> : <FaChevronDown />}
       </S.Menu>
-      {isOpened && <SelectMenuSection onClick={onClick} />}
+      {isOpened && (
+        <SelectMenuSection onClick={onClick} qnaMenuList={QNA_MENU_LIST} location={location} />
+      )}
+      {QNA_MENU_LIST.filter(({ href }) => location.pathname === `/qna/${href}`)[0].list.map(
+        ({ question, answer }, index) => (
+          <QnASection key={index} question={question} answer={answer} />
+        )
+      )}
     </S.QnAContainer>
   );
 };
