@@ -58,6 +58,14 @@ export const InputElement = styled.input`
   border: none;
   background: none;
   color: white;
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    transition: background-color 5000s;
+    -webkit-text-fill-color: #000000 !important;
+  }
 `;
 
 export const InputMessage = styled.p`
