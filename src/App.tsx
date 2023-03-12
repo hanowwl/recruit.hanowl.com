@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet, Route, Routes } from 'react-router-dom';
 
 import { AuthLayout, DefaultLayout } from './components';
-import { MainPage, TeamPage, SignInPage } from './pages';
+import { MainPage, TeamPage, SignInPage, SignUpPage } from './pages';
 
 export const App: React.FC = () => {
   return (
@@ -27,6 +27,7 @@ export const App: React.FC = () => {
         }
       >
         <Route path="signin" element={<SignInPage />} />
+        <Route path="signup" element={<SignUpPage />} />
       </Route>
     </Routes>
   );

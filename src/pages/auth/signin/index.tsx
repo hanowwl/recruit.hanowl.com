@@ -3,31 +3,45 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 import { Input } from '@/components';
-
-// import { LoginFormValues } from 'src/api/user';
-// import { useLogin } from 'src/hook/query';
-
-// import { AuthLabelTextField, AuthLayout, Button, ErrorMessage, Input } from 'src/components';
+import { supabase } from '@/supabase';
+import { useToast } from '@/hooks';
+import { useAtom } from 'jotai';
+import { accessTokenAtom } from '@/atoms/token';
 
 import * as S from './styled';
 
-interface LoginFormValues {
-  id: string;
+interface SignInFormValues {
+  email: string;
   password: string;
 }
 
 export const SignInPage: React.FC = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
+  const [_, setAccessToken] = useAtom(accessTokenAtom);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginFormValues>();
-  // const { mutate } = useLogin();
+  } = useForm<SignInFormValues>();
 
-  const onSubmit = ({ id, password }: LoginFormValues) => {
-    console.log({ id, password });
+  const onSubmit = async (props: SignInFormValues) => {
+    const { email, password } = props;
+
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        throw new Error(error.message);
+      }
+      return toast.success({ template: '로그인 성공! 😎' });
+    } catch (error) {
+      toast.error({ template: '로그인에 문제가 생겼어요! 다시 시도해주세요 😢' });
+    }
   };
 
   return (
@@ -39,7 +53,7 @@ export const SignInPage: React.FC = () => {
           label="아이디"
           type="text"
           placeholder="아이디를 입력해주세요."
-          {...register('id', {
+          {...register('email', {
             required: '올바른 아이디 또는 비밀번호를 입력해주세요.',
           })}
         />
