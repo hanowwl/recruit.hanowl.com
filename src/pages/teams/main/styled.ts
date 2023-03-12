@@ -64,7 +64,7 @@ export const TeamNameLink = styled(Link)`
 
 export const ApplyButton = styled.button`
   margin-top: 2rem;
-  padding: 0.8rem 3rem;
+  padding: 1.2rem 2.4rem;
   background-color: #fff;
   outline: none;
   border: none;
@@ -72,4 +72,6 @@ export const ApplyButton = styled.button`
   border-radius: 0.8rem;
   font-size: 1.6rem;
   font-weight: 600;
+  min-width: 30rem;
+  cursor: pointer;
 `;
