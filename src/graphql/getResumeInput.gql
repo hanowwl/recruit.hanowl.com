@@ -10,6 +10,7 @@ query getResumeInput($filter: resume_caseFilter) {
               input_id
               case_id
               resume_input {
+                id
                 max
                 min
                 name

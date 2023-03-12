@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 import { useGetResumeInputLazyQuery } from '@/graphql/generated/hooks';
 import { TEAM_LIST } from '@/constant';
@@ -8,7 +9,16 @@ import { useToast } from '@/hooks';
 
 import * as S from './styled';
 
+export interface ApplyFormValues {
+  [key: string]: string;
+}
+
 export const TeamApplyPage: React.FC = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ApplyFormValues>();
   const { toast } = useToast();
   const { teamId } = useParams<{ teamId: string }>();
   const team = useMemo(() => TEAM_LIST.find((v) => v.id === teamId), [teamId]);
@@ -37,7 +47,7 @@ export const TeamApplyPage: React.FC = () => {
 
   if (!teamId || !team) return <Navigate to="/teams/tech" />;
   return (
-    <S.ApplyFormContainer>
+    <S.ApplyFormContainer onSubmit={handleSubmit((data) => console.log(data))}>
       {loading && <>로딩 중</>}
 
       {data && (
@@ -47,13 +57,32 @@ export const TeamApplyPage: React.FC = () => {
             {inputs.map(({ resume_input }, i) => {
               if (!resume_input) return;
 
-              const { name, type, requirement, max } = resume_input;
+              const { name, type, requirement, min, max, id } = resume_input;
+              const getMessage = () => {
+                if (errors[id]?.message) return errors[id]?.message;
+                if (min && max) return `최소 ${min}자 이상, 최대 ${max}자 이내`;
+                if (min) return `최소 ${min}자 이상`;
+                if (max) return `최대 ${max}자 이내`;
+
+                return '';
+              };
+
               return (
                 <Input
                   type={type}
                   key={i}
                   label={`${name} ${requirement ? '(필수)' : ''}`}
-                  message={max ? `최대 ${max}자 이내` : ''}
+                  message={getMessage()}
+                  error={Boolean(errors[id]?.message)}
+                  {...register(id.toString(), {
+                    required: requirement ? '필수 입력값이에요' : false,
+                    minLength: min
+                      ? { value: min, message: `최소 ${min}자 이상 입력해주세요` }
+                      : undefined,
+                    maxLength: max
+                      ? { value: max, message: `최대 ${max}자까지 입력할 수 있어요` }
+                      : undefined,
+                  })}
                 />
               );
             })}
