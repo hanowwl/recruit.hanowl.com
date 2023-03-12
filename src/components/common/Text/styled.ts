@@ -35,7 +35,7 @@ export const TextRowContainer = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-
+  z-index: 99;
   font-size: 8.8rem;
   font-weight: 800;
   gap: 1.2rem;

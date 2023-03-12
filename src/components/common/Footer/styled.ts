@@ -9,6 +9,8 @@ export const FooterContainer = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  bottom: 0;
 `;
 
 export const FooterTitle = styled.h1`

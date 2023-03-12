@@ -2,8 +2,11 @@ import React from 'react';
 
 import { BlurCircle, Text } from '@/components';
 import { Banner1PNG, Banner2PNG } from '@/assets';
+import { useScrollFadeIn } from '@/hooks/useScrollFadeIn';
 
 export const MainSection: React.FC = () => {
+  const animation = useScrollFadeIn<HTMLHeadingElement>('right', 0.7);
+
   return (
     <BlurCircle.Section
       circles={[
@@ -35,7 +38,7 @@ export const MainSection: React.FC = () => {
         },
       ]}
     >
-      <Text.Column>
+      <Text.Column {...animation}>
         <Text.Row>
           <Text>HANOWL</Text>
           <Text strong>STUDENT</Text>
