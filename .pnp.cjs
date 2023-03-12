@@ -44,7 +44,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@graphql-codegen/typescript-react-apollo", "virtual:4119e3778fda7ae6ef214a7181bfe090ac7dd661a1ecc5b08472ed71749be35a606d13c19936d74e5e2d56e2ea9c41873fff458f9005f0c4b443820ec2f49f07#npm:3.3.7"],\
             ["@graphql-codegen/typescript-resolvers", "virtual:4119e3778fda7ae6ef214a7181bfe090ac7dd661a1ecc5b08472ed71749be35a606d13c19936d74e5e2d56e2ea9c41873fff458f9005f0c4b443820ec2f49f07#npm:3.1.1"],\
             ["@graphql-typed-document-node/core", "virtual:4119e3778fda7ae6ef214a7181bfe090ac7dd661a1ecc5b08472ed71749be35a606d13c19936d74e5e2d56e2ea9c41873fff458f9005f0c4b443820ec2f49f07#npm:3.1.2"],\
-            ["@mui/icons-material", "virtual:4119e3778fda7ae6ef214a7181bfe090ac7dd661a1ecc5b08472ed71749be35a606d13c19936d74e5e2d56e2ea9c41873fff458f9005f0c4b443820ec2f49f07#npm:5.11.11"],\
             ["@supabase/supabase-js", "npm:2.10.0"],\
             ["@types/node", "npm:18.14.6"],\
             ["@types/react", "npm:18.0.28"],\
@@ -3067,33 +3066,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jridgewell/trace-mapping", "npm:0.3.9"],\
             ["@jridgewell/resolve-uri", "npm:3.1.0"],\
             ["@jridgewell/sourcemap-codec", "npm:1.4.14"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@mui/icons-material", [\
-        ["npm:5.11.11", {\
-          "packageLocation": "./.yarn/cache/@mui-icons-material-npm-5.11.11-940fa0a0ab-6ec89f3c68.zip/node_modules/@mui/icons-material/",\
-          "packageDependencies": [\
-            ["@mui/icons-material", "npm:5.11.11"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:4119e3778fda7ae6ef214a7181bfe090ac7dd661a1ecc5b08472ed71749be35a606d13c19936d74e5e2d56e2ea9c41873fff458f9005f0c4b443820ec2f49f07#npm:5.11.11", {\
-          "packageLocation": "./.yarn/__virtual__/@mui-icons-material-virtual-b82aa1c73d/0/cache/@mui-icons-material-npm-5.11.11-940fa0a0ab-6ec89f3c68.zip/node_modules/@mui/icons-material/",\
-          "packageDependencies": [\
-            ["@mui/icons-material", "virtual:4119e3778fda7ae6ef214a7181bfe090ac7dd661a1ecc5b08472ed71749be35a606d13c19936d74e5e2d56e2ea9c41873fff458f9005f0c4b443820ec2f49f07#npm:5.11.11"],\
-            ["@babel/runtime", "npm:7.21.0"],\
-            ["@mui/material", null],\
-            ["@types/mui__material", null],\
-            ["@types/react", "npm:18.0.28"],\
-            ["react", "npm:18.2.0"]\
-          ],\
-          "packagePeers": [\
-            "@mui/material",\
-            "@types/mui__material",\
-            "@types/react",\
-            "react"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9043,7 +9015,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@graphql-codegen/typescript-react-apollo", "virtual:4119e3778fda7ae6ef214a7181bfe090ac7dd661a1ecc5b08472ed71749be35a606d13c19936d74e5e2d56e2ea9c41873fff458f9005f0c4b443820ec2f49f07#npm:3.3.7"],\
             ["@graphql-codegen/typescript-resolvers", "virtual:4119e3778fda7ae6ef214a7181bfe090ac7dd661a1ecc5b08472ed71749be35a606d13c19936d74e5e2d56e2ea9c41873fff458f9005f0c4b443820ec2f49f07#npm:3.1.1"],\
             ["@graphql-typed-document-node/core", "virtual:4119e3778fda7ae6ef214a7181bfe090ac7dd661a1ecc5b08472ed71749be35a606d13c19936d74e5e2d56e2ea9c41873fff458f9005f0c4b443820ec2f49f07#npm:3.1.2"],\
-            ["@mui/icons-material", "virtual:4119e3778fda7ae6ef214a7181bfe090ac7dd661a1ecc5b08472ed71749be35a606d13c19936d74e5e2d56e2ea9c41873fff458f9005f0c4b443820ec2f49f07#npm:5.11.11"],\
             ["@supabase/supabase-js", "npm:2.10.0"],\
             ["@types/node", "npm:18.14.6"],\
             ["@types/react", "npm:18.0.28"],\
