@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { BlurCircle, Text } from '@/components';
-import { Banner1PNG, Banner2PNG } from '@/assets';
+import { Banner1PNG, Banner2PNG, Banner3PNG } from '@/assets';
 import { useScrollFadeIn } from '@/hooks/useScrollFadeIn';
 
 export const MainSection: React.FC = () => {
@@ -66,7 +66,7 @@ export const MainSection: React.FC = () => {
         </Text.Row>
         <Text.Row>
           <Text>진짜라니까? </Text>
-          <Text fill></Text>
+          <Text fill={{ url: Banner3PNG, position: '50% 60%' }}></Text>
           <Text>일단 지원해봐</Text>
         </Text.Row>
       </Text.Column>
