@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { MainSection, ScheduleSection } from '@/components/main';
 import { useCounter } from '@/hooks/useCounter';
@@ -10,42 +11,42 @@ import * as S from './styled';
 export const MENU_CONSTANTS = [
   {
     title: '기능부',
-    href: '/',
+    href: '/teams/tech',
     background: '#212021',
   },
   {
     title: '홍보부',
-    href: '/',
+    href: '/teams/design',
     background: '#DD9A34',
   },
   {
     title: '행사기획부',
-    href: '/',
+    href: '/teams/event-plan',
     background: '#CF3737',
   },
   {
     title: '학예체육부',
-    href: '/',
+    href: '/teams/exercise',
     background: '#9DDD34',
   },
   {
     title: '안전부',
-    href: '/',
+    href: '/teams/safety',
     background: '#34DD78',
   },
   {
     title: '총무부',
-    href: '/',
+    href: '/teams/account',
     background: '#34AADD',
   },
   {
     title: '도서부',
-    href: '/',
+    href: '/teams/book',
     background: '#4C34DD',
   },
   {
     title: '방송부',
-    href: '/',
+    href: '/teams/broadcast',
     background: '#8934DD',
   },
 ];
@@ -112,11 +113,13 @@ export const MainPage: React.FC = () => {
           학생을 위한 학교를 만들고자 합니다
         </S.AboutStudentGovernment>
         <S.AboutStudentGovernmentContainer>
-          {MENU_CONSTANTS.map((menu) => {
+          {MENU_CONSTANTS.map((menu, i) => {
             return (
-              <S.AboutStudentGovernmentItem background={menu.background}>
-                {menu.title}
-              </S.AboutStudentGovernmentItem>
+              <Link to={menu.href} key={i}>
+                <S.AboutStudentGovernmentItem background={menu.background}>
+                  {menu.title}
+                </S.AboutStudentGovernmentItem>
+              </Link>
             );
           })}
         </S.AboutStudentGovernmentContainer>

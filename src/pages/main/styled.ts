@@ -2,6 +2,14 @@ import styled from '@emotion/styled';
 
 export const SectionConatiner = styled.div`
   padding-top: 45rem;
+
+  @media screen and (max-width: 720px) {
+    padding-top: 20rem;
+
+    br {
+      display: none;
+    }
+  }
 `;
 
 export const Title = styled.h1`
@@ -9,6 +17,10 @@ export const Title = styled.h1`
   margin-bottom: 5rem;
   font-weight: 700;
   line-height: 1.2;
+
+  @media screen and (max-width: 720px) {
+    font-size: 4.8rem;
+  }
 `;
 
 export const TeamStorySectionTitle = styled(Title)`
@@ -43,6 +55,15 @@ export const TeamStoryContainer = styled.div`
   justify-content: space-between;
   max-width: 95rem;
   margin: 0 auto;
+
+  @media screen and (max-width: 720px) {
+    flex-direction: column;
+
+    img {
+      width: 100%;
+      height: 28rem;
+    }
+  }
 `;
 
 export const TeamStoryItemContainer = styled.div`
@@ -67,17 +88,21 @@ export const TeamStoryImage = styled.img`
   height: 22rem;
   border-radius: 1rem;
   transition: all 0.2s;
+  object-fit: cover;
 
-  :hover {
-    scale: 1.03;
-    transition-duration: 0.15;
+  @media screen and (min-width: 720px) {
+    :hover {
+      scale: 1.03;
+      transition-duration: 0.15;
+    }
   }
 `;
 
 export const AboutStudentGovernment = styled.div`
   font-size: 4rem;
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
+  line-height: 1.2;
 `;
 
 export const AboutStudentGovernmentContainer = styled.div`
@@ -88,6 +113,16 @@ export const AboutStudentGovernmentContainer = styled.div`
   margin: 0 auto;
   margin-top: 3rem;
   margin-bottom: 7rem;
+
+  a {
+    color: unset;
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 720px) {
+    justify-content: center;
+    column-gap: 2rem;
+  }
 `;
 
 export const AboutStudentGovernmentItem = styled.div<{ background: string }>`
@@ -108,6 +143,7 @@ export const AboutStudentGovernmentItem = styled.div<{ background: string }>`
     opacity: 1;
     transition-duration: 0.15;
   }
+
   :active {
     scale: 0.97;
     opacity: 0.65;
