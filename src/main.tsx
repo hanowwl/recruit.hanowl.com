@@ -7,7 +7,7 @@ import { Global } from '@emotion/react';
 
 import { App } from './App';
 import { globalStyle } from './styles';
-import { Modal } from './components';
+import { Modal, Toast } from './components';
 import { ENV } from './constant';
 
 const client = new ApolloClient({
@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('app') as HTMLElement).render(
       <BrowserRouter>
         <Global styles={[globalStyle]} />
         <Modal.Container />
-
+        <Toast />
         <App />
       </BrowserRouter>
     </ApolloProvider>
