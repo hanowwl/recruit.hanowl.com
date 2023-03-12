@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Session } from '@supabase/supabase-js';
+import { AuthError, Session } from '@supabase/supabase-js';
 import { Users } from '@/graphql/generated/types';
 import { useGetUserProfileQuery, useInsertUserMutation } from '@/graphql/generated/hooks';
 import { supabase } from '@/supabase';
@@ -114,11 +114,20 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       try {
         const options = getSafeOptions(_options);
         const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw new Error(error.message);
+        if (error) throw error;
 
         navigate(options.redirectUri);
         return toast.success({ template: '로그인 성공! 😎' });
       } catch (error) {
+        if (error instanceof AuthError) {
+          switch (error.message) {
+            case 'Invalid login credentials':
+              return toast.error({ template: '이메일 또는 비밀번호가 잘못되었어요' });
+            default:
+              return toast.error({ template: '로그인에 문제가 생겼어요! 다시 시도해주세요 😢' });
+          }
+        }
+
         return toast.error({ template: '로그인에 문제가 생겼어요! 다시 시도해주세요 😢' });
       }
     },
