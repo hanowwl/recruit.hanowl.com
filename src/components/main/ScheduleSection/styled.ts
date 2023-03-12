@@ -35,7 +35,7 @@ export const Schedule = styled.div`
 
 export const ScheduleLine = styled.span`
   width: 0.3rem;
-  height: 30rem;
+  //height: 30rem;
   border: 1.5px solid #575757;
   margin-right: 2rem;
 `;
