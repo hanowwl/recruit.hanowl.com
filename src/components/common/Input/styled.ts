@@ -12,6 +12,10 @@ export const InputContainer = styled.div<Pick<InputCustomProps, 'error'>>`
         box-shadow: inset 0 0 0 2px ${colors.danger.default} !important;
       }
 
+      & > div:has(textarea) {
+        box-shadow: inset 0 0 0 2px ${colors.danger.default} !important;
+      }
+
       & > p {
         color: ${colors.danger.default} !important;
       }
@@ -36,6 +40,11 @@ export const InputElementWrapper = styled.div`
 
   &:has(input:disabled),
   input:disabled {
+    cursor: not-allowed;
+  }
+
+  &:has(textarea:disabled),
+  textarea:disabled {
     cursor: not-allowed;
   }
 
