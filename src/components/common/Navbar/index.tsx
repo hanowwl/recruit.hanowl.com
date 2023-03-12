@@ -38,12 +38,14 @@ export const Navbar: React.FC<NavbarProps> = ({ menu }) => {
       transition={{ ease: [0.1, 0.25, 0.3, 1], duration: 0.6 }}
     >
       <S.NavbarContainer>
-        <S.NavbarTitle>HANOWL</S.NavbarTitle>
+        <S.NavbarTitle>
+          <S.NavbarLink to="/">HANOWL</S.NavbarLink>
+        </S.NavbarTitle>
         <div>
           <S.NavbarMenuContainer>
             {menu.map(({ href, text, onClick }) => (
               <S.NavbarMenuItem key={href} onClick={onClick}>
-                {text}
+                <S.NavbarLink to={href}>{text}</S.NavbarLink>
               </S.NavbarMenuItem>
             ))}
           </S.NavbarMenuContainer>
