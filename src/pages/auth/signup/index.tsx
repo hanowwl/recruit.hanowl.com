@@ -166,8 +166,10 @@ export const SignUpPage: React.FC = () => {
             })}
           >
             <option>학년</option>
-            {GRADES.map((grade) => (
-              <option value={grade}>{grade}학년</option>
+            {GRADES.map((grade, i) => (
+              <option key={i} value={grade}>
+                {grade}학년
+              </option>
             ))}
           </S.SignUpSelect>
           <S.Step3SelectListContainer>
@@ -177,8 +179,10 @@ export const SignUpPage: React.FC = () => {
               })}
             >
               <option>학과</option>
-              {departments.map((department) => (
-                <option value={department}>{department}</option>
+              {departments.map((department, i) => (
+                <option key={i} value={department}>
+                  {department}
+                </option>
               ))}
             </S.SignUpSelect>
             <S.SignUpSelect
@@ -200,7 +204,9 @@ export const SignUpPage: React.FC = () => {
             >
               <option>번호</option>
               {Array.from(Array(30).keys()).map((_, i) => (
-                <option value={i + 1}>{i + 1}번</option>
+                <option key={i} value={i + 1}>
+                  {i + 1}번
+                </option>
               ))}
             </S.SignUpSelect>
           </S.Step3SelectListContainer>
