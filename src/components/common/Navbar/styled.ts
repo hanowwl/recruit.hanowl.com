@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { motion } from 'framer-motion';
 import styled from '@emotion/styled';
 
@@ -28,4 +30,20 @@ export const NavbarTitle = styled.h2`
 export const NavbarMenuContainer = styled.ul`
   display: flex;
   gap: 4rem;
+`;
+
+export const NavbarMenuItem = styled.li`
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #161616;
+  }
+`;
+
+export const NavbarLink = styled(Link)`
+  color: #ffffff;
+  text-decoration: none;
 `;

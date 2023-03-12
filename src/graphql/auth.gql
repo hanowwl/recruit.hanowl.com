@@ -1,0 +1,50 @@
+mutation insertUser(
+  $id: UUID!
+  $name: String!
+  $phone: String!
+  $studentDepart: String!
+  $studentClass: Int!
+  $studentGrade: Int!
+  $studentNumber: Int!
+) {
+  insertIntousersCollection(
+    objects: {
+      id: $id
+      name: $name
+      phone: $phone
+      student_depart: $studentDepart
+      student_grade: $studentGrade
+      student_class: $studentClass
+      student_number: $studentNumber
+    }
+  ) {
+    affectedCount
+    records {
+      id
+      name
+      phone
+      student_depart
+      student_grade
+      student_class
+      student_number
+    }
+  }
+}
+
+query getUserProfile($filter: usersFilter) {
+  usersCollection(filter: $filter) {
+    edges {
+      node {
+        id
+        name
+        phone
+        role
+        student_class
+        student_depart
+        student_grade
+        student_number
+        created_at
+      }
+    }
+  }
+}
