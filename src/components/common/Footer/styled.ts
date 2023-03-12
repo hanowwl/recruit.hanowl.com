@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-export const FooterWrapper = styled.footer`
+export const FooterContainer = styled.footer`
   background-color: #171718;
   padding: 6rem 0;
   display: flex;
@@ -16,7 +16,7 @@ export const FooterTitle = styled.h1`
   font-weight: 800;
 `;
 
-export const IconContainer = styled.div`
+export const FooterIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
