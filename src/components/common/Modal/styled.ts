@@ -106,4 +106,5 @@ export const Button = styled.button`
   font-weight: 500;
   padding: 1.2rem;
   border-radius: 0.8rem;
+  cursor: pointer;
 `;
