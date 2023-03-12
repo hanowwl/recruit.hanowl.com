@@ -11,6 +11,7 @@ import { globalStyle } from './styles';
 import { Modal, Toast } from './components';
 import { ENV } from './constant';
 import { supabase } from './supabase';
+import { AuthProvider } from './providers';
 
 const httpLink = createHttpLink({ uri: `${ENV.SUPABASE_URL}/graphql/v1` });
 const authLink = setContext(async (_, { headers }) => {
@@ -35,14 +36,16 @@ const client = new ApolloClient({
 
 ReactDOM.createRoot(document.getElementById('app') as HTMLElement).render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <BrowserRouter>
-        <Global styles={[globalStyle]} />
-        <Modal.Container />
-        <Toast />
+    <BrowserRouter>
+      <ApolloProvider client={client}>
+        <AuthProvider>
+          <Global styles={[globalStyle]} />
+          <Modal.Container />
+          <Toast />
 
-        <App />
-      </BrowserRouter>
-    </ApolloProvider>
+          <App />
+        </AuthProvider>
+      </ApolloProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
