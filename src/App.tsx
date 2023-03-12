@@ -1,8 +1,9 @@
 import React from 'react';
-import { Outlet, Route, Routes } from 'react-router-dom';
+import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 
 import { AuthLayout, DefaultLayout, PrivateRoute } from './components';
-import { MainPage, TeamPage, SignInPage, SignUpPage } from './pages';
+import { TEAM_LIST } from './constant';
+import { MainPage, TeamMainPage, SignInPage, SignUpPage } from './pages';
 
 export const App: React.FC = () => {
   return (
@@ -15,7 +16,12 @@ export const App: React.FC = () => {
         }
       >
         <Route index element={<MainPage />} />
-        <Route path="/teams" element={<TeamPage />} />
+        <Route path="/teams">
+          <Route index element={<Navigate to={`/teams/${TEAM_LIST[0].id}`} />} />
+          <Route path=":teamId">
+            <Route index element={<TeamMainPage />} />
+          </Route>
+        </Route>
       </Route>
 
       <Route element={<PrivateRoute needAuth={false} />}>

@@ -1,15 +1,21 @@
-import React, { useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { useEffect, useMemo } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import { TeamIntroduce } from '@/components';
 import { TEAM_LIST } from '@/constant';
 
 import * as S from './styled';
 
-export const TeamPage: React.FC = () => {
-  const [searchParams] = useSearchParams();
-  const teamId = useMemo(() => searchParams.get('teamId') || TEAM_LIST[0].id, [searchParams]);
+export const TeamMainPage: React.FC = () => {
+  const navigate = useNavigate();
+  const { teamId } = useParams<{ teamId: string }>();
   const activeTeam = useMemo(() => TEAM_LIST.find((v) => v.id === teamId), [teamId]);
+
+  useEffect(() => {
+    if (TEAM_LIST.findIndex((v) => v.id === teamId) === -1)
+      return navigate(`/teams/${TEAM_LIST[0].id}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <S.TeamPageContainer>
@@ -26,7 +32,7 @@ export const TeamPage: React.FC = () => {
         <S.TeamList>
           {TEAM_LIST.map(({ id, name }) => (
             <S.TeamListItem key={id} isActive={teamId === id}>
-              <S.TeamNameLink to={`?teamId=${id}`}>{name}</S.TeamNameLink>
+              <S.TeamNameLink to={`/teams/${id}`}>{name}</S.TeamNameLink>
             </S.TeamListItem>
           ))}
         </S.TeamList>
@@ -34,7 +40,9 @@ export const TeamPage: React.FC = () => {
       </S.TeamIntroduceContainer>
 
       <div>
-        <S.ApplyButton>지원하기</S.ApplyButton>
+        <Link to={`/teams/${teamId}/apply`}>
+          <S.ApplyButton>지원하기</S.ApplyButton>
+        </Link>
       </div>
     </S.TeamPageContainer>
   );
