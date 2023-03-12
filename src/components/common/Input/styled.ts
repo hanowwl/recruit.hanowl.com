@@ -57,7 +57,7 @@ export const InputElement = styled.input`
   outline: none;
   border: none;
   background: none;
-  color: #1d1c24;
+  color: white;
 `;
 
 export const InputMessage = styled.p`
