@@ -41,7 +41,7 @@ export const TextRowContainer = styled.div`
   gap: 1rem;
 
   ${TEXT_BREAK_POINTS.reduce((prev, curr, i) => {
-    const size = (8.4 - 0.2 * i).toFixed(1);
+    const size = (7.5 - 0.2 * i).toFixed(1);
 
     return css`
       ${prev}
