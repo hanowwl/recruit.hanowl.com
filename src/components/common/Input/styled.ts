@@ -64,7 +64,7 @@ export const InputElement = styled.input`
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
     transition: background-color 5000s;
-    -webkit-text-fill-color: #000000 !important;
+    -webkit-text-fill-color: #ffffff !important;
   }
 `;
 
