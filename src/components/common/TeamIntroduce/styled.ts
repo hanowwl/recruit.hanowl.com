@@ -21,6 +21,16 @@ export const SectionDescription = styled.p`
   font-weight: 400;
   line-height: 1.5;
   color: #bbbbbb;
+
+  @media screen and (max-width: 720px) {
+    br {
+      content: '';
+    }
+
+    br:after {
+      content: ' ';
+    }
+  }
 `;
 
 export const SectionListUl = styled.ul`

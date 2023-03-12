@@ -15,11 +15,13 @@ export const App: React.FC = () => {
           </DefaultLayout>
         }
       >
+        <Route index element={<MainPage />} />
+
         <Route path="/qna">
           <Route index element={<Navigate to="/qna/dev" />} />
           <Route path="*" element={<QnAPage />} />
-        </Route/>
-        
+        </Route>
+
         <Route path="/teams">
           <Route index element={<Navigate to={`/teams/${TEAM_LIST[0].id}`} />} />
           <Route path=":teamId">

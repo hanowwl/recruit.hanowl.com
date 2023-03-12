@@ -38,8 +38,10 @@ export const TeamIntroduceContainer = styled.div`
 export const TeamList = styled.ul`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 2rem;
+  column-gap: 2rem;
+  row-gap: 0.4rem;
   margin-bottom: 4rem;
 `;
 
