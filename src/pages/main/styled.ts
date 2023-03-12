@@ -65,6 +65,12 @@ export const TeamStoryImage = styled.img`
   width: 30rem;
   height: 22rem;
   border-radius: 1rem;
+  transition: all 0.2s;
+
+  :hover {
+    scale: 1.03;
+    transition-duration: 0.15;
+  }
 `;
 
 export const AboutStudentGovernment = styled.div`
