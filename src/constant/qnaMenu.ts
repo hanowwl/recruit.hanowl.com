@@ -1,14 +1,31 @@
-export const QNA_MENU_LIST = [
+export interface QnAMenuItem {
+  text: string;
+  href: string;
+}
+
+export const QNA_MENU_LIST: QnAMenuItem[] = [
   {
-    title: '공통 질문',
+    text: '공통 질문',
+    href: '',
   },
   {
-    title: '공통 질문',
+    text: '기능부',
+    href: 'dev',
   },
   {
-    title: '공통 질문',
+    text: '홍보부',
+    href: 'marketing',
   },
   {
-    title: '공통 질문',
+    text: '행사기획부',
+    href: 'event',
+  },
+  {
+    text: '안전부',
+    href: 'safety',
+  },
+  {
+    text: '총모부',
+    href: 'general',
   },
 ];

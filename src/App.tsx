@@ -17,7 +17,7 @@ export const App: React.FC = () => {
       >
         <Route index element={<MainPage />} />
         <Route path="/teams" element={<TeamPage />} />
-        <Route path="/qna" element={<QnAPage />} />
+        <Route path="/qna/*" element={<QnAPage />} />
       </Route>
     </Routes>
   );
