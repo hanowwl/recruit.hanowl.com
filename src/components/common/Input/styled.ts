@@ -27,7 +27,6 @@ export const InputLabel = styled.label`
 
 export const InputElementWrapper = styled.div`
   width: 100%;
-  height: 4.8rem;
   display: flex;
   align-items: center;
   padding: 0 1.6rem;
@@ -51,7 +50,7 @@ export const InputElementWrapper = styled.div`
 
 export const InputElement = styled.input`
   width: 100%;
-  height: 100%;
+  height: 4.8rem;
   font-size: 1.6rem;
   font-weight: 400;
   outline: none;
@@ -127,4 +126,29 @@ export const InputClearButton = styled.button<{ isFocusingOrHasValue: boolean }>
       opacity: 1;
       z-index: 1;
     `}
+`;
+
+export const TextareaElement = styled.textarea`
+  padding: 1.4rem 0;
+  width: 100%;
+  height: 16rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  outline: none;
+  border: none;
+  background: none;
+  resize: none;
+  color: white;
+
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic',
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    transition: background-color 5000s;
+    -webkit-text-fill-color: #ffffff !important;
+  }
 `;
