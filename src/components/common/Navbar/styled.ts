@@ -7,6 +7,7 @@ export const NavbarWrapper = styled(motion.nav)`
   width: 100%;
   position: fixed;
   height: 8rem;
+  z-index: 9999;
   backdrop-filter: blur(1rem);
   background-color: rgba(0, 0, 0, 0.3);
 `;
@@ -15,7 +16,7 @@ export const NavbarContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 0 1.5rem;
-  max-width: 1323px;
+  max-width: 1123px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;

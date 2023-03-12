@@ -1,18 +1,22 @@
 import { useState } from 'react';
 
 import { SCHEDULE_LIST } from '@/constant/schedule';
+import { useScrollFadeIn } from '@/hooks/useScrollFadeIn';
 
 import * as S from './styled';
 
-export const Schedule: React.FC = () => {
+export const ScheduleSection: React.FC = () => {
+  const animation1 = useScrollFadeIn<HTMLHeadingElement>('up', 1);
+  const animation2 = useScrollFadeIn<HTMLHeadingElement>('up', 1);
+
   return (
     <S.ScheduleWrapper>
       <S.ScheduleContainer>
-        <S.Title>
+        <S.Title {...animation1}>
           학생회는 오늘도 <br />
           새로운 학교를 만들어가고 있습니다
         </S.Title>
-        <S.Schedule>
+        <S.Schedule {...animation2}>
           <S.ScheduleLine />
           <S.ScheduleContentWrapper>
             {SCHEDULE_LIST.map(({ date, content }, index) => (

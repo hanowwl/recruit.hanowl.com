@@ -1,9 +1,12 @@
 import React from 'react';
 
 import { BlurCircle, Text } from '@/components';
-import { Banner1PNG, Banner2PNG } from '@/assets';
+import { Banner1PNG, Banner2PNG, Banner3PNG } from '@/assets';
+import { useScrollFadeIn } from '@/hooks/useScrollFadeIn';
 
 export const MainSection: React.FC = () => {
+  const animation = useScrollFadeIn<HTMLHeadingElement>('right', 0.7);
+
   return (
     <BlurCircle.Section
       circles={[
@@ -35,7 +38,7 @@ export const MainSection: React.FC = () => {
         },
       ]}
     >
-      <Text.Column>
+      <Text.Column {...animation}>
         <Text.Row>
           <Text>HANOWL</Text>
           <Text strong>STUDENT</Text>
@@ -60,6 +63,11 @@ export const MainSection: React.FC = () => {
         <Text.Row>
           <Text fill></Text>
           <Text>날이면 날마다 오는 기회가 아니에요</Text>
+        </Text.Row>
+        <Text.Row>
+          <Text>진짜라니까? </Text>
+          <Text fill={{ url: Banner3PNG, position: '50% 60%' }}></Text>
+          <Text>일단 지원해봐</Text>
         </Text.Row>
       </Text.Column>
     </BlurCircle.Section>

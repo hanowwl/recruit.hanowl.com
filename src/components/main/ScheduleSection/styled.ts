@@ -6,6 +6,7 @@ export const ScheduleWrapper = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 18rem;
 `;
 
 export const ScheduleContainer = styled.div`
@@ -19,7 +20,8 @@ export const ScheduleContainer = styled.div`
 
 export const Title = styled.h1`
   text-align: center;
-  font-size: 3rem;
+  font-size: 4.5rem;
+  line-height: 6rem;
   font-weight: 600;
 `;
 
@@ -33,7 +35,7 @@ export const Schedule = styled.div`
 
 export const ScheduleLine = styled.span`
   width: 0.3rem;
-  height: 28rem;
+  //height: 30rem;
   border: 1.5px solid #575757;
   margin-right: 2rem;
 `;
@@ -49,8 +51,8 @@ export const ScheduleContentWrapper = styled.div`
 export const ScheduleEllipse = styled.div`
   position: relative;
   right: 2.8rem;
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.3rem;
+  height: 1.3rem;
   border-radius: 50%;
   background-color: #575757;
   margin-right: 1rem;
@@ -63,13 +65,13 @@ export const ScheduleContentContainer = styled.div`
 `;
 
 export const ScheduleDate = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.7rem;
   font-weight: 400;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.8rem;
   color: #969696;
 `;
 
 export const ScheduleContent = styled.p`
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-weight: 600;
 `;
