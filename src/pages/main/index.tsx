@@ -57,7 +57,7 @@ export const MainPage: React.FC = () => {
   const animation4 = useScrollFadeIn<HTMLHeadingElement>('up', 1);
   const animation5 = useScrollFadeIn<HTMLHeadingElement>('up', 1);
 
-  const { count: campaignCount, ref: campaignRef } = useCounter(35, 50);
+  const { count: campaignCount, ref: campaignRef } = useCounter(4, 50);
   const { count: peopleCount, ref: peopleRef } = useCounter(27, 50);
 
   return (
@@ -69,8 +69,8 @@ export const MainPage: React.FC = () => {
         </S.Title>
         <S.CampaignContainer {...animation2}>
           <div>
-            <S.CampaignTitle>누적 캠페인 수</S.CampaignTitle>
-            <S.CampaignCount ref={campaignRef}>{campaignCount}건</S.CampaignCount>
+            <S.CampaignTitle>매년 진행 행사 수</S.CampaignTitle>
+            <S.CampaignCount ref={campaignRef}>+ {campaignCount}건</S.CampaignCount>
           </div>
           <div>
             <S.CampaignTitle>전체 학생회 인원</S.CampaignTitle>

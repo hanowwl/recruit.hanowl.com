@@ -7,7 +7,8 @@ export const SectionConatiner = styled.div`
 export const Title = styled.h1`
   font-size: 5rem;
   margin-bottom: 5rem;
-  font-weight: 600;
+  font-weight: 700;
+  line-height: 1.2;
 `;
 
 export const TeamStorySectionTitle = styled(Title)`
