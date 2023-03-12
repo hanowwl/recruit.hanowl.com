@@ -3,7 +3,7 @@ import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 
 import { AuthLayout, DefaultLayout, PrivateRoute } from './components';
 import { TEAM_LIST } from './constant';
-import { MainPage, TeamMainPage, SignInPage, SignUpPage, TeamApplyPage } from './pages';
+import { MainPage, TeamMainPage, SignInPage, SignUpPage, TeamApplyPage, QnAPage } from './pages';
 
 export const App: React.FC = () => {
   return (
@@ -15,7 +15,11 @@ export const App: React.FC = () => {
           </DefaultLayout>
         }
       >
-        <Route index element={<MainPage />} />
+        <Route path="/qna">
+          <Route index element={<Navigate to="/qna/dev" />} />
+          <Route path="*" element={<QnAPage />} />
+        </Route/>
+        
         <Route path="/teams">
           <Route index element={<Navigate to={`/teams/${TEAM_LIST[0].id}`} />} />
           <Route path=":teamId">
