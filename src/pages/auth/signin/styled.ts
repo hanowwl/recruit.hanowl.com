@@ -35,3 +35,17 @@ export const SignInInputContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
 `;
+
+export const SignInLinkContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  user-select: none;
+
+  a {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+  }
+`;
