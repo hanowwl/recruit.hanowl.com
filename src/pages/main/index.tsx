@@ -3,6 +3,7 @@ import React from 'react';
 import { MainSection, ScheduleSection } from '@/components/main';
 import { useCounter } from '@/hooks/useCounter';
 import { useScrollFadeIn } from '@/hooks/useScrollFadeIn';
+import { EtcActivityPNG, FestivalPNG, HanseithonPNG } from '@/assets';
 
 import * as S from './styled';
 
@@ -87,9 +88,20 @@ export const MainPage: React.FC = () => {
           </S.TeamStorySectionDescription>
         </div>
         <S.TeamStoryContainer {...animation5}>
-          <S.TeamStoryItemText>🚀 hanseithon</S.TeamStoryItemText>
-          <S.TeamStoryItemText>🧞‍♂️ 한세어울림마당</S.TeamStoryItemText>
-          <S.TeamStoryItemText>😎 이외 행사</S.TeamStoryItemText>
+          <S.TeamStoryItemContainer>
+            <S.TeamStoryImage src={HanseithonPNG} />
+            <S.TeamStoryItemText>🚀 hanseithon</S.TeamStoryItemText>
+          </S.TeamStoryItemContainer>
+
+          <S.TeamStoryItemContainer>
+            <S.TeamStoryImage src={FestivalPNG} />
+            <S.TeamStoryItemText>🧞‍♂️ 한세어울림마당</S.TeamStoryItemText>
+          </S.TeamStoryItemContainer>
+
+          <S.TeamStoryItemContainer>
+            <S.TeamStoryImage src={EtcActivityPNG} />
+            <S.TeamStoryItemText>😎 이외 행사</S.TeamStoryItemText>
+          </S.TeamStoryItemContainer>
         </S.TeamStoryContainer>
       </S.SectionConatiner>
       <ScheduleSection />

@@ -40,15 +40,31 @@ export const CampaignCount = styled.div`
 export const TeamStoryContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  max-width: 800px;
+  max-width: 95rem;
   margin: 0 auto;
+`;
+
+export const TeamStoryItemContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+
+  margin-top: 4rem;
 `;
 
 export const TeamStoryItemText = styled.div`
   color: #ced4da;
   font-size: 1.5rem;
-  margin-top: 10rem;
+  // margin-top: 10rem;
   font-weight: 600;
+`;
+
+export const TeamStoryImage = styled.img`
+  width: 30rem;
+  height: 22rem;
+  border-radius: 1rem;
 `;
 
 export const AboutStudentGovernment = styled.div`
