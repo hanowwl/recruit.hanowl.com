@@ -12,5 +12,6 @@ export const MENU_LIST: NavbarMenuItem[] = [
   {
     text: '로그인',
     href: '/auth/signin',
+    permission: (profile) => profile === null,
   },
 ];
