@@ -31,3 +31,10 @@ export const ApplyButton = styled.button`
   padding: 1.2rem;
   border-radius: 1rem;
 `;
+
+export const ApplyButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+`;

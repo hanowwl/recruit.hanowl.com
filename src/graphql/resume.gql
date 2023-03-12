@@ -7,6 +7,14 @@ mutation createResume($userId: UUID!, $caseId: Int!) {
   }
 }
 
+mutation updateResumeSubmittedAt($set: resumeUpdateInput!, $filter: resumeFilter) {
+  updateresumeCollection(set: $set, filter: $filter) {
+    records {
+      submitted_at
+    }
+  }
+}
+
 query getResume($filter: resumeFilter) {
   resumeCollection(filter: $filter) {
     edges {
