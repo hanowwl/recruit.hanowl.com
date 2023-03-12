@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
+
 import styled from '@emotion/styled';
 
 export const FooterWrapper = styled.footer`
-  border: 1px solid red;
   background-color: #171718;
-  padding: 10rem 0;
+  padding: 6rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,7 +18,19 @@ export const FooterTitle = styled.h1`
 
 export const IconContainer = styled.div`
   display: flex;
-  /* width: 50%; */
+  justify-content: center;
+  align-items: center;
+`;
+
+export const IconWrapper = styled(Link)`
+  padding: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 6px;
+  border-radius: 50%;
+  background-color: #313131;
+  color: white;
 `;
 
 export const FooterDescription = styled.p`
