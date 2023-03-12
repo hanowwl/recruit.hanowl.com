@@ -58,6 +58,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
           <S.InputButtonsRelativeContainer>
             <S.InputClearButton
+              type="button"
               tabIndex={-1}
               onClick={handleOnClickClearButton}
               // input[type="password"]의 경우만 클리어 버튼 포커스도 Input 포커스로 인식
@@ -71,6 +72,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
             {isPasswordInput && (
               <S.InputPasswordVisibleButton
+                type="button"
                 tabIndex={-1}
                 onClick={handleOnClickVisibleButton}
                 isFocusingOrHasValue={isFocusingOrHasValue}
