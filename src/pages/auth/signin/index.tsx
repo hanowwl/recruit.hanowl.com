@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
-import { Input } from '@/components';
+import { Button, Input } from '@/components';
 import { useAuth } from '@/providers';
 
 import * as S from './styled';
@@ -59,7 +59,7 @@ export const SignInPage: React.FC = () => {
           <span>|</span>
           <Link to="/auth/forgot-password">비밀번호 찾기</Link>
         </S.SignInLinkContainer>
-        <button type="submit">로그인</button>
+        <Button type="submit">로그인</Button>
       </S.SignInContainer>
     </S.SignInForm>
   );

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
 import { SCHOOL } from '@/constant';
-import { Input } from '@/components';
+import { Button, Input } from '@/components';
 import { useAuth } from '@/providers';
 
 import * as S from './styled';
@@ -216,9 +216,9 @@ export const SignUpPage: React.FC = () => {
         <S.SignUpLinkContainer>
           이미 계정이 있으신가요? <Link to="/auth/signin">로그인</Link>
         </S.SignUpLinkContainer>
-        <button type="submit" disabled={!isAllValuesEntered}>
-          가입하기
-        </button>
+        <Button type="submit" disabled={!isAllValuesEntered}>
+          회원가입
+        </Button>
       </S.SignUpContainer>
     </S.SignUpForm>
   );
