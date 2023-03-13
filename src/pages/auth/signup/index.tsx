@@ -49,7 +49,7 @@ export const SignUpPage: React.FC = () => {
         setDepartments(DEPARTMENT_NEW);
         setClassRoom(TWO_CLASS_ROOM);
       } else if (value.studentGrade === 2) {
-        setDepartments(DEPARTMENT_OLD);
+        setDepartments(DEPARTMENT_NEW);
         setClassRoom(TWO_CLASS_ROOM);
         if (value.studentDepart === '네트워크보안과') {
           setClassRoom(ONE_CLASS_ROOM);
