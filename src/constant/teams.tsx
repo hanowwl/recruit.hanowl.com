@@ -49,14 +49,32 @@ export const TEAM_LIST: Team[] = [
             여러 프로젝트에 참여하면서 기획/디자인/개발/운영 모든 단계에 참여하면서, 경험을 쌓을 수
             있어요.
             <br />
-            <a
-              href="https://github.com/hanowwl"
-              target="_blank"
-              rel="noreferrer"
-              style={{ color: 'unset', fontWeight: 700, textDecoration: 'none' }}
-            >
-              [ 기능부 역대 프로젝트 보기 ]
-            </a>
+            <div style={{ display: 'flex', gap: '0.8rem' }}>
+              <a
+                href="https://github.com/hanowwl"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: 'unset', fontWeight: 700, textDecoration: 'none' }}
+              >
+                [ 기능부 역대 프로젝트 보기 ]
+              </a>
+              <a
+                href="https://github.com/hansei-team/hansei-team-qr-frontend"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: 'unset', fontWeight: 700, textDecoration: 'none' }}
+              >
+                [ 2022 한세어울림마당 서비스 레포 ]
+              </a>
+              <a
+                href="https://festival.hansei.team"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: 'unset', fontWeight: 700, textDecoration: 'none' }}
+              >
+                [ 2022 한세어울림마당 서비스 ]
+              </a>
+            </div>
             <br />
             <br />
             (여러분이 보고 계신 이 페이지도 기능부가 만들었답니다)
