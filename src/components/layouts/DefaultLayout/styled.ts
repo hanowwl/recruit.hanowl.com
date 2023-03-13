@@ -7,6 +7,7 @@ export const DefaultLayoutContainer = styled.div`
 
 export const DefaultLayoutWrapper = styled.main`
   width: 100%;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
   max-width: 1123px;
