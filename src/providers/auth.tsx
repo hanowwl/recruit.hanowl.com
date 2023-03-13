@@ -1,4 +1,4 @@
-import React, { useContext, useLayoutEffect, useState } from 'react';
+import React, { useContext, useEffect, useLayoutEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { AuthError, Session } from '@supabase/supabase-js';
@@ -50,6 +50,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [init, setInit] = useState<boolean>(false);
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<UserProfile | null>(null);
+
   const { refetch } = useGetUserProfileQuery({
     skip: true,
     onCompleted: ({ usersCollection }) => {
@@ -86,7 +87,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, []);
 
   useLayoutEffect(() => {
-    if (!session) return;
+    if (!session) return setInit(true);
     refetch({ filter: { id: { eq: session.user.id } } });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session]);
