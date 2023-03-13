@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
+import * as Sentry from '@sentry/react';
+import { BrowserTracing } from '@sentry/tracing';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { Global } from '@emotion/react';
@@ -32,6 +34,13 @@ const authLink = setContext(async (_, { headers }) => {
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
+});
+
+Sentry.init({
+  dsn: ENV.SENTRY_DSN_URL,
+  integrations: [new BrowserTracing()],
+  tracesSampleRate: 1.0,
+  environment: ENV.MODE,
 });
 
 ReactDOM.createRoot(document.getElementById('app') as HTMLElement).render(
