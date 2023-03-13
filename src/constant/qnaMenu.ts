@@ -95,7 +95,7 @@ export const QNA_MENU_LIST: QnAMenuItem[] = [
       },
       {
         question:
-          '한세톤, 한세어울림마당 등의 행사에서 학생들을 통솔하고 이끈다고 하는데 학생들을 통솔하고 이끄는데에 힘든 점은 없을까요?',
+          '여러 행사에서 학생들을 통솔하고 이끈다고 하는데 학생들을 통솔하고 이끄는데에 힘든 점은 없을까요?',
         answer:
           '대부분의 학생들이 학생회의 지시를 잘 따라주며 협조해주기에 큰 힘든 점은 많이 없어요. 특별한 경우가 아니라면 힘든 점은 많이 없을거라 생각해요.',
       },
@@ -103,7 +103,7 @@ export const QNA_MENU_LIST: QnAMenuItem[] = [
   },
   {
     text: '총무부',
-    href: 'general',
+    href: 'account',
     list: [
       {
         question: '총무부는 엑셀을 잘해야만 들어올 수 있나요?',

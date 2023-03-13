@@ -1,87 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import { useLocation } from 'react-router-dom';
+import React, { useMemo } from 'react';
+import { Link, useParams } from 'react-router-dom';
 
-import { SelectMenuSection } from '@/components';
 import { QNA_MENU_LIST } from '@/constant/qnaMenu';
-import { QnASection } from '@/components/qna/QnASection';
+import { QuestionBox } from '@/components/qna';
 
 import * as S from './styled';
 
 export const QnAPage: React.FC = () => {
-  const [isOpened, setIsOpened] = useState<boolean>(false);
-  const location = useLocation();
-
-  const onClick = () => {
-    setIsOpened(!isOpened);
-  };
-
-  const checkActive = (href: string) => {
-    return location.pathname === `/qna/${href}`;
-  };
-
-  const [windowDimension, detectHW] = useState({ winWidth: window.innerWidth });
-
-  const detectSize = () => {
-    detectHW({
-      winWidth: window.innerWidth,
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', detectSize);
-
-    return () => {
-      window.removeEventListener('resize', detectSize);
-    };
-  }, [windowDimension]);
+  const { teamId } = useParams<{ teamId: string }>();
+  const questions = useMemo(() => QNA_MENU_LIST.find((v) => v.href === (teamId || '')), [teamId]);
 
   return (
-    <S.QnAContainer>
+    <div>
       <S.Title>자주 묻는 질문</S.Title>
-      {windowDimension.winWidth <= 767 ? (
-        <>
-          <S.Menu
-            onClick={() => {
-              onClick();
-            }}
-          >
-            {QNA_MENU_LIST.filter(({ href }) => checkActive(href))[0].text}
-            {isOpened ? <FaChevronUp /> : <FaChevronDown />}
-          </S.Menu>
-          {isOpened && (
-            <SelectMenuSection onClick={onClick} qnaMenuList={QNA_MENU_LIST} location={location} />
-          )}
-          {QNA_MENU_LIST.filter(({ href }) => checkActive(href))[0].list.map(
-            ({ question, answer }, index) => (
-              <QnASection key={index} question={question} answer={answer} />
-            )
-          )}
-        </>
-      ) : (
+
+      <S.QnAContainer>
+        <S.QnATeamList>
+          {QNA_MENU_LIST.map(({ text, href }) => {
+            const isActive = href === (teamId || '');
+
+            return (
+              <li key={text}>
+                <Link to={`/qna/${href}`}>
+                  <S.QnaTeamButton fillWidth size="large" className={isActive ? 'active' : ''}>
+                    {text}
+                  </S.QnaTeamButton>
+                </Link>
+              </li>
+            );
+          })}
+        </S.QnATeamList>
         <S.QnAContentContainer>
-          <S.Menu
-            onClick={() => {
-              onClick();
-            }}
-          >
-            {QNA_MENU_LIST.map(({ text, href }, index) => {
-              return (
-                <S.QnAMenuContent key={index} isActive={checkActive(href)} to={`/qna/${href}`}>
-                  {text}
-                </S.QnAMenuContent>
-              );
-            })}
-          </S.Menu>
-          <S.QnASectionWrapper>
-            {QNA_MENU_LIST.filter(({ href }) => checkActive(href))[0].list.map(
-              ({ question, answer }, index) => (
-                <QnASection key={index} question={question} answer={answer} />
-              )
-            )}
-          </S.QnASectionWrapper>
+          <S.QnAQuestionList>
+            {questions &&
+              questions.list.map(({ question, answer }) => {
+                return (
+                  <li>
+                    <QuestionBox question={question} answer={answer} />
+                  </li>
+                );
+              })}
+          </S.QnAQuestionList>
         </S.QnAContentContainer>
-      )}
-    </S.QnAContainer>
+      </S.QnAContainer>
+    </div>
   );
 };

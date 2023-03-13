@@ -18,8 +18,8 @@ export const App: React.FC = () => {
         <Route index element={<MainPage />} />
 
         <Route path="/qna">
-          <Route index element={<Navigate to="/qna/dev" />} />
-          <Route path="*" element={<QnAPage />} />
+          <Route index element={<QnAPage />} />
+          <Route path=":teamId" element={<QnAPage />} />
         </Route>
 
         <Route path="/teams">
