@@ -49,8 +49,36 @@ export const TEAM_LIST: Team[] = [
             여러 프로젝트에 참여하면서 기획/디자인/개발/운영 모든 단계에 참여하면서, 경험을 쌓을 수
             있어요.
             <br />
+            <a
+              href="https://github.com/hanowwl"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: 'unset', fontWeight: 700, textDecoration: 'none' }}
+            >
+              [ 기능부 역대 프로젝트 보기 ]
+            </a>
+            <br />
             <br />
             (여러분이 보고 계신 이 페이지도 기능부가 만들었답니다)
+          </>
+        ),
+      },
+      {
+        title: '과제 안내',
+        text: (
+          <>
+            기능부에서는 여러분의 실력을 확인하기 위해 과제를 제출 받고 있어요.
+            <br />
+            과제는 투두-리스트(TODO-LIST) 개발이며 2가지 유형으로 지원이 가능해요.
+            <br />
+            <br />
+            <ol start={1} style={{ listStyle: 'decimal' }}>
+              <li style={{ marginLeft: '2rem' }}>프론트와 로컬 스토리지를 활용한 TODO-LIST</li>
+              <li style={{ marginLeft: '2rem' }}>백엔드까지 구현하여 DB 저장되는 TODO-LIST</li>
+            </ol>
+            <br />
+            1번, 2번 유형 모두 새로고침 시에도 리스트가 유지되어야하며, 제시한 내용 이외의 추가
+            기능은 자유롭게 개발해주세요.
           </>
         ),
       },
@@ -242,6 +270,27 @@ export const TEAM_LIST: Team[] = [
           </>
         ),
       },
+      {
+        title: '과제 안내',
+        text: (
+          <>
+            홍보부에서는 여러분의 창의력을 확인하기 위해 과제를 제출 받고 있어요
+            <br />
+            홍보부 과제는 홍보부를 소개하는 내용을 담고 있는 뉴스카드를 만들고 제출하는 거랍니다
+            <br />
+            과제 진행 전, 아래 조건들을 꼭 지켜서 만들어주세요
+            <br />
+            <br />
+            <ol start={1} style={{ listStyle: 'decimal' }}>
+              <li style={{ marginLeft: '2rem' }}>뉴스카드 사이즈는 1080px x 1080px이에요</li>
+              <li style={{ marginLeft: '2rem' }}>
+                뉴스카드 안에 '홍보부'라는 글자가 꼭 들어가야해요
+              </li>
+            </ol>
+          </>
+        ),
+      },
+      { title: '모집 대상', list: ['교내 1-2학년 재학생'] },
       {
         title: '인재상',
         list: ['디자인으 할 줄 아시는 분', '선배와 부담없이 소통할 수 있으신 분'],
