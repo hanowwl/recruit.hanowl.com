@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
+
 import { QnAItem } from '@/constant/qnaMenu';
 
 import * as S from './styled';
