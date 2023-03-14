@@ -129,13 +129,16 @@ export const TeamApplyPage: React.FC = () => {
       const formData = getValues();
       const inputId = Object.keys(formData);
 
+      console.log(answers);
+
       await supabase.from('resume_answer').upsert(
         inputId.map((id) => ({
           id: answers.find((v) => v.input_id === parseInt(id))?.id,
           input_id: parseInt(id),
           resume_id: resumeId as number,
           value: formData[id] || '',
-        }))
+        })),
+        { onConflict: 'id' }
       );
 
       if (submit) {
