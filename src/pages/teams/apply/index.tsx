@@ -8,10 +8,10 @@ import {
   useGetResumeCaseQuery,
   useGetResumeWithInputAndAnswersQuery,
 } from '@/graphql/generated/hooks';
-import { TEAM_LIST } from '@/constant';
 import { Button, Input } from '@/components';
-import { useModal, useToast } from '@/hooks';
+import { TEAM_LIST } from '@/constant';
 import { useAuth } from '@/providers';
+import { useModal, useToast } from '@/hooks';
 import { supabase } from '@/supabase';
 
 import * as S from './styled';

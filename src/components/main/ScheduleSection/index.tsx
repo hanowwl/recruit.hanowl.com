@@ -1,7 +1,5 @@
-import { useState } from 'react';
-
-import { SCHEDULE_LIST } from '@/constant/schedule';
-import { useScrollFadeIn } from '@/hooks/useScrollFadeIn';
+import { SCHEDULE_LIST } from '@/constant';
+import { useScrollFadeIn } from '@/hooks';
 
 import * as S from './styled';
 

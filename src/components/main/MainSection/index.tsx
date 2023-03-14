@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BlurCircle, Text } from '@/components';
 import { Banner1PNG, Banner2PNG, Banner3PNG } from '@/assets';
-import { useScrollFadeIn } from '@/hooks/useScrollFadeIn';
+import { useScrollFadeIn } from '@/hooks';
 
 export const MainSection: React.FC = () => {
   const animation = useScrollFadeIn<HTMLHeadingElement>('right', 0.7);

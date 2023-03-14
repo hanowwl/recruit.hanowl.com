@@ -5,8 +5,8 @@ import { AuthError, Session } from '@supabase/supabase-js';
 
 import { Users } from '@/graphql/generated/types';
 import { useGetUserProfileQuery, useInsertUserMutation } from '@/graphql/generated/hooks';
-import { supabase } from '@/supabase';
 import { useToast } from '@/hooks';
+import { supabase } from '@/supabase';
 
 export type UserProfile = Omit<Users, 'nodeId' | 'resumeCollection'>;
 

@@ -1,6 +1,6 @@
-import { useLocation, useMatch } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-import { QnAMenuItem } from '@/constant/qnaMenu';
+import { QnAMenuItem } from '@/constant';
 
 import * as S from './styled';
 

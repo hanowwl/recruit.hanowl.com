@@ -1,4 +1,4 @@
-import { NavbarMenuItem } from '../components';
+import { NavbarMenuItem } from '@/components';
 
 export const MENU_LIST: NavbarMenuItem[] = [
   {

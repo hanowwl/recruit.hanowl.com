@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useAtomValue } from 'jotai';
 
-import { modalsAtom } from '../../../atoms';
-import { Button, ButtonProps } from '../Button';
+import { modalsAtom } from '@/atoms';
+import { Button, ButtonProps } from '@/components';
 
 import * as S from './styled';
 

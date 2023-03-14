@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { AnimatePresence } from 'framer-motion';
 import { useAtomValue } from 'jotai';
 
-import { toastsAtom } from '../../../atoms';
-import { TOAST_TYPE_PROPS } from '../../../constant/toast';
+import { toastsAtom } from '@/atoms';
+import { TOAST_TYPE_PROPS } from '@/constant';
 
 import * as S from './styled';
 

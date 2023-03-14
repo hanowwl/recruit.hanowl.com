@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { MainSection, ScheduleSection } from '@/components/main';
-import { useCounter } from '@/hooks/useCounter';
-import { useScrollFadeIn } from '@/hooks/useScrollFadeIn';
 import { EtcActivityPNG, FestivalPNG, HanseithonPNG } from '@/assets';
+import { MainSection, ScheduleSection } from '@/components';
+import { useCounter, useScrollFadeIn } from '@/hooks';
 
 import * as S from './styled';
 
