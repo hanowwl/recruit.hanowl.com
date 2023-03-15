@@ -1,8 +1,9 @@
 import React, { ForwardedRef, useEffect, useMemo, useState } from 'react';
 
-import { colors } from '@/styles/colors';
 import { faEye, faEyeSlash, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { colors } from '@/styles/colors';
 
 import * as S from './styled';
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 
-import { AuthLayout, DefaultLayout, PrivateRoute } from './components';
-import { TEAM_LIST } from './constant';
-import { MainPage, TeamMainPage, SignInPage, SignUpPage, TeamApplyPage, QnAPage } from './pages';
+import { AuthLayout, DefaultLayout, PrivateRoute } from '@/components';
+import { TEAM_LIST } from '@/constant';
+import { MainPage, TeamMainPage, SignInPage, SignUpPage, TeamApplyPage, QnAPage } from '@/pages';
 
 export const App: React.FC = () => {
   return (

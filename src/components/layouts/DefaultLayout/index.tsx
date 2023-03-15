@@ -1,5 +1,5 @@
-import { MENU_LIST } from '../../../constant';
-import { Footer, Navbar } from '../../common';
+import { MENU_LIST } from '@/constant';
+import { Footer, Navbar } from '@/components';
 
 import * as S from './styled';
 

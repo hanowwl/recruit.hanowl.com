@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
-import { colors } from '@/styles/colors';
 import { css, SerializedStyles } from '@emotion/react';
+
+import { colors } from '@/styles/colors';
 
 import { ButtonCustomProps, ButtonSize, ButtonVariant } from '.';
 

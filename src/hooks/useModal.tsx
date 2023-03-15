@@ -1,7 +1,7 @@
 import { useSetAtom } from 'jotai';
 
-import { modalsAtom } from '../atoms';
-import { ModalProps } from '../components';
+import { modalsAtom } from '@/atoms';
+import { ModalProps } from '@/components';
 
 export const useModal = () => {
   const setModals = useSetAtom(modalsAtom);

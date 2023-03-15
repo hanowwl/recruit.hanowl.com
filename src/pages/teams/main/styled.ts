@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+
 import { colors } from '@/styles/colors';
 
 export const TeamPageContainer = styled.div`
