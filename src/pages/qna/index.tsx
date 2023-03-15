@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-import { QuestionBox } from '@/components';
+import { QuestionBox } from '@/components/qna';
 import { QNA_MENU_LIST } from '@/constant';
 
 import * as S from './styled';

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { EtcActivityPNG, FestivalPNG, HanseithonPNG } from '@/assets';
-import { MainSection, ScheduleSection } from '@/components';
+import { MainSection, ScheduleSection } from '@/components/main';
 import { useCounter, useScrollFadeIn } from '@/hooks';
 
 import * as S from './styled';
