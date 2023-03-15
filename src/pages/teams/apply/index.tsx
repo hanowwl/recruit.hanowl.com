@@ -112,7 +112,9 @@ export const TeamApplyPage: React.FC = () => {
       response?.resume_case?.resume_case_inputCollection?.edges.map((v) => v.node) || [];
     const answers = response?.resume_answerCollection?.edges.map((v) => v.node) || [];
 
-    answers.forEach((v) => setValue(v.input_id.toString(), v.value));
+    answers.forEach((v) => {
+      if (v.input_id) setValue(v.input_id.toString(), v.value);
+    });
 
     return {
       resumeId: response?.id,
