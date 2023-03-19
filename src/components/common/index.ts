@@ -5,6 +5,7 @@ export * from './Input';
 export * from './Modal';
 export * from './Navbar';
 export * from './PrivateRoute';
+export * from './Table';
 export * from './TeamIntroduce';
 export * from './Text';
 export * from './Toast';
