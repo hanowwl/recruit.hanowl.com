@@ -14,4 +14,9 @@ export const MENU_LIST: NavbarMenuItem[] = [
     href: '/auth/signin',
     permission: (profile) => profile === null,
   },
+  {
+    text: '🦉 지원서 확인',
+    href: '/admin/resumes',
+    permission: (profile) => profile !== null && profile.role === 'ADMIN',
+  },
 ];

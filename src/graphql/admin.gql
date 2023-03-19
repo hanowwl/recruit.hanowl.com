@@ -1,0 +1,51 @@
+query getAllUsersWithResume {
+  usersCollection {
+    edges {
+      node {
+        created_at
+        id
+        name
+        phone
+        role
+        student_depart
+        student_class
+        student_grade
+        student_number
+
+        resumeCollection {
+          edges {
+            node {
+              id
+              case_id
+              created_at
+              updated_at
+              submitted_at
+
+              resume_case {
+                name
+              }
+
+              resume_answerCollection {
+                edges {
+                  node {
+                    id
+                    value
+
+                    resume_input {
+                      id
+                      name
+                    }
+
+                    resume {
+                      case_id
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
