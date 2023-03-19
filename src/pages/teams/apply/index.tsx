@@ -8,10 +8,10 @@ import {
   useGetResumeCaseQuery,
   useGetResumeWithInputAndAnswersQuery,
 } from '@/graphql/generated/hooks';
-import { TEAM_LIST } from '@/constant';
 import { Button, Input } from '@/components';
-import { useModal, useToast } from '@/hooks';
+import { TEAM_LIST } from '@/constant';
 import { useAuth } from '@/providers';
+import { useModal, useToast } from '@/hooks';
 import { supabase } from '@/supabase';
 
 import * as S from './styled';
@@ -112,7 +112,9 @@ export const TeamApplyPage: React.FC = () => {
       response?.resume_case?.resume_case_inputCollection?.edges.map((v) => v.node) || [];
     const answers = response?.resume_answerCollection?.edges.map((v) => v.node) || [];
 
-    answers.forEach((v) => setValue(v.input_id.toString(), v.value));
+    answers.forEach((v) => {
+      if (v.input_id) setValue(v.input_id.toString(), v.value);
+    });
 
     return {
       resumeId: response?.id,

@@ -19,7 +19,8 @@
       "error",
       {
         "pathGroups": [
-          { "pattern": "{react*,react*/**}", "group": "external", "position": "before" }
+          { "pattern": "{react*,react*/**}", "group": "external", "position": "before" },
+          { "pattern": "[@]/**", "group": "internal", "position": "after" }
         ],
         "groups": [
           "type",

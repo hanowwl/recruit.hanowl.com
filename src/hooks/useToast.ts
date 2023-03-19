@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
 
-import { toastsAtom } from '../atoms';
-import { ToastProps } from '../components';
+import { toastsAtom } from '@/atoms';
+import { ToastProps } from '@/components';
 
 const sleep = (ms: number) => {
   return new Promise((r) => setTimeout(r, ms));

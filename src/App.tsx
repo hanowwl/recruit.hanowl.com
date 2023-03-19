@@ -1,9 +1,11 @@
 import React from 'react';
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 
-import { AuthLayout, DefaultLayout, PrivateRoute } from './components';
-import { TEAM_LIST } from './constant';
-import { MainPage, TeamMainPage, SignInPage, SignUpPage, TeamApplyPage, QnAPage } from './pages';
+import { AuthLayout, DefaultLayout, PrivateRoute } from '@/components';
+import { TEAM_LIST } from '@/constant';
+import { MainPage, TeamMainPage, SignInPage, SignUpPage, TeamApplyPage, QnAPage } from '@/pages';
+
+import { AdminResumesPage } from './pages/admin';
 
 export const App: React.FC = () => {
   return (
@@ -31,6 +33,10 @@ export const App: React.FC = () => {
               <Route path="apply" element={<TeamApplyPage />} />
             </Route>
           </Route>
+        </Route>
+
+        <Route path="/admin" element={<PrivateRoute needAuth={true} roles={['ADMIN']} />}>
+          <Route path="resumes" element={<AdminResumesPage />} />
         </Route>
       </Route>
 

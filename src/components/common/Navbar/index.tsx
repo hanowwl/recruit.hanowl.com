@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { useScroll, useMotionValue, useMotionValueEvent } from 'framer-motion';
+
 import { useAuth, UserProfile } from '@/providers';
 
 import * as S from './styled';

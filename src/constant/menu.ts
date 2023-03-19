@@ -1,4 +1,4 @@
-import { NavbarMenuItem } from '../components';
+import { NavbarMenuItem } from '@/components';
 
 export const MENU_LIST: NavbarMenuItem[] = [
   {
@@ -13,5 +13,10 @@ export const MENU_LIST: NavbarMenuItem[] = [
     text: '로그인',
     href: '/auth/signin',
     permission: (profile) => profile === null,
+  },
+  {
+    text: '🦉 지원서 확인',
+    href: '/admin/resumes',
+    permission: (profile) => profile !== null && profile.role === 'ADMIN',
   },
 ];

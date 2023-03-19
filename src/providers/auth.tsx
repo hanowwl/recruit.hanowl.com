@@ -1,11 +1,12 @@
-import React, { useContext, useEffect, useLayoutEffect, useState } from 'react';
+import React, { useContext, useLayoutEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { AuthError, Session } from '@supabase/supabase-js';
+
 import { Users } from '@/graphql/generated/types';
 import { useGetUserProfileQuery, useInsertUserMutation } from '@/graphql/generated/hooks';
-import { supabase } from '@/supabase';
 import { useToast } from '@/hooks';
+import { supabase } from '@/supabase';
 
 export type UserProfile = Omit<Users, 'nodeId' | 'resumeCollection'>;
 

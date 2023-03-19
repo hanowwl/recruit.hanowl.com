@@ -2,7 +2,7 @@
   "name": "recruit.hanowl.com",
   "packageManager": "yarn@3.4.1",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": "https://github.com/hanowwl/recruit.hanowl.com",
   "maintainers": [
     {
@@ -43,6 +43,8 @@
     "@sentry/react": "^7.42.0",
     "@sentry/tracing": "^7.42.0",
     "@supabase/supabase-js": "^2.10.0",
+    "@tanstack/react-table": "^8.7.9",
+    "dayjs": "^1.11.7",
     "framer-motion": "^10.2.3",
     "graphql": "^16.6.0",
     "jotai": "^2.0.3",
